@@ -1,0 +1,16 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: 01_introduction_to_jupyter_notebooks
+- file: 02_mathematical_operations
+- file: 03_data_types_lists_tuples_dictionaries
+- file: 04_for_loops
+- file: 05_conditional_statements
+- file: 06_custom_functions
+- file: 07_image_processing_with_scikit_image
+- file: 08_tabular_data_wrangling_with_pandas
+- file: 09_plotting_with_seaborn
+- file: 10_random_forest_classifiers_scikit_learn
