@@ -1,93 +1,85 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 1314, in execute
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
     return future.result()
-  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Load a sample image
-image = io.imread('https://scikit-image.org/docs/stable/_static/img/logo.png')
-
-# Display the image
-plt.imshow(image)
+image = io.imread('camera.png')
+plt.imshow(image, cmap='gray')
 plt.axis('off')
 plt.show()
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mHTTPError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[2], line 2[0m
-[1;32m      1[0m [38;5;66;03m# Load a sample image[39;00m
-[0;32m----> 2[0m image [38;5;241m=[39m [43mio[49m[38;5;241;43m.[39;49m[43mimread[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mhttps://scikit-image.org/docs/stable/_static/img/logo.png[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[1;32m      4[0m [38;5;66;03m# Display the image[39;00m
-[1;32m      5[0m plt[38;5;241m.[39mimshow(image)
+[0;31mOSError[0m                                   Traceback (most recent call last)
+Cell [0;32mIn[2], line 1[0m
+[0;32m----> 1[0m image [38;5;241m=[39m [43mio[49m[38;5;241;43m.[39;49m[43mimread[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mcamera.png[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m      2[0m plt[38;5;241m.[39mimshow(image, cmap[38;5;241m=[39m[38;5;124m'[39m[38;5;124mgray[39m[38;5;124m'[39m)
+[1;32m      3[0m plt[38;5;241m.[39maxis([38;5;124m'[39m[38;5;124moff[39m[38;5;124m'[39m)
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/skimage/io/_io.py:59[0m, in [0;36mimread[0;34m(fname, as_gray, plugin, **plugin_args)[0m
-[1;32m     56[0m     [38;5;28;01mif[39;00m fname[38;5;241m.[39mlower()[38;5;241m.[39mendswith(([38;5;124m'[39m[38;5;124m.tiff[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m.tif[39m[38;5;124m'[39m)):
-[1;32m     57[0m         plugin [38;5;241m=[39m [38;5;124m'[39m[38;5;124mtifffile[39m[38;5;124m'[39m
-[0;32m---> 59[0m [38;5;28;01mwith[39;00m file_or_url_context(fname) [38;5;28;01mas[39;00m fname:
-[1;32m     60[0m     img [38;5;241m=[39m call_plugin([38;5;124m'[39m[38;5;124mimread[39m[38;5;124m'[39m, fname, plugin[38;5;241m=[39mplugin, [38;5;241m*[39m[38;5;241m*[39mplugin_args)
-[1;32m     62[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mhasattr[39m(img, [38;5;124m'[39m[38;5;124mndim[39m[38;5;124m'[39m):
+File [0;32m/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/io/_io.py:53[0m, in [0;36mimread[0;34m(fname, as_gray, plugin, **plugin_args)[0m
+[1;32m     50[0m         plugin [38;5;241m=[39m [38;5;124m'[39m[38;5;124mtifffile[39m[38;5;124m'[39m
+[1;32m     52[0m [38;5;28;01mwith[39;00m file_or_url_context(fname) [38;5;28;01mas[39;00m fname:
+[0;32m---> 53[0m     img [38;5;241m=[39m [43mcall_plugin[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mimread[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mfname[49m[43m,[49m[43m [49m[43mplugin[49m[38;5;241;43m=[39;49m[43mplugin[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mplugin_args[49m[43m)[49m
+[1;32m     55[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mhasattr[39m(img, [38;5;124m'[39m[38;5;124mndim[39m[38;5;124m'[39m):
+[1;32m     56[0m     [38;5;28;01mreturn[39;00m img
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/contextlib.py:119[0m, in [0;36m_GeneratorContextManager.__enter__[0;34m(self)[0m
-[1;32m    117[0m [38;5;28;01mdel[39;00m [38;5;28mself[39m[38;5;241m.[39margs, [38;5;28mself[39m[38;5;241m.[39mkwds, [38;5;28mself[39m[38;5;241m.[39mfunc
-[1;32m    118[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 119[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mnext[39;49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mgen[49m[43m)[49m
-[1;32m    120[0m [38;5;28;01mexcept[39;00m [38;5;167;01mStopIteration[39;00m:
-[1;32m    121[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124m"[39m[38;5;124mgenerator didn[39m[38;5;124m'[39m[38;5;124mt yield[39m[38;5;124m"[39m) [38;5;28;01mfrom[39;00m [38;5;28;01mNone[39;00m
+File [0;32m/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/io/manage_plugins.py:205[0m, in [0;36mcall_plugin[0;34m(kind, *args, **kwargs)[0m
+[1;32m    202[0m     [38;5;28;01mexcept[39;00m [38;5;167;01mIndexError[39;00m:
+[1;32m    203[0m         [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124mf[39m[38;5;124m'[39m[38;5;124mCould not find the plugin [39m[38;5;124m"[39m[38;5;132;01m{[39;00mplugin[38;5;132;01m}[39;00m[38;5;124m"[39m[38;5;124m for [39m[38;5;132;01m{[39;00mkind[38;5;132;01m}[39;00m[38;5;124m.[39m[38;5;124m'[39m)
+[0;32m--> 205[0m [38;5;28;01mreturn[39;00m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/skimage/io/util.py:27[0m, in [0;36mfile_or_url_context[0;34m(resource_name)[0m
-[1;32m     25[0m [38;5;28;01mtry[39;00m:
-[1;32m     26[0m     [38;5;28;01mwith[39;00m tempfile[38;5;241m.[39mNamedTemporaryFile(delete[38;5;241m=[39m[38;5;28;01mFalse[39;00m, suffix[38;5;241m=[39mext) [38;5;28;01mas[39;00m f:
-[0;32m---> 27[0m         [38;5;28;01mwith[39;00m [43murllib[49m[38;5;241;43m.[39;49m[43mrequest[49m[38;5;241;43m.[39;49m[43murlopen[49m[43m([49m[43mresource_name[49m[43m)[49m [38;5;28;01mas[39;00m u:
-[1;32m     28[0m             f[38;5;241m.[39mwrite(u[38;5;241m.[39mread())
-[1;32m     29[0m     [38;5;66;03m# f must be closed before yielding[39;00m
+File [0;32m/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/io/_plugins/imageio_plugin.py:11[0m, in [0;36mimread[0;34m(*args, **kwargs)[0m
+[1;32m      9[0m [38;5;129m@wraps[39m(imageio_imread)
+[1;32m     10[0m [38;5;28;01mdef[39;00m [38;5;21mimread[39m([38;5;241m*[39margs, [38;5;241m*[39m[38;5;241m*[39mkwargs):
+[0;32m---> 11[0m     out [38;5;241m=[39m np[38;5;241m.[39masarray([43mimageio_imread[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m)
+[1;32m     12[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m out[38;5;241m.[39mflags[[38;5;124m'[39m[38;5;124mWRITEABLE[39m[38;5;124m'[39m]:
+[1;32m     13[0m         out [38;5;241m=[39m out[38;5;241m.[39mcopy()
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/urllib/request.py:214[0m, in [0;36murlopen[0;34m(url, data, timeout, cafile, capath, cadefault, context)[0m
-[1;32m    212[0m [38;5;28;01melse[39;00m:
-[1;32m    213[0m     opener [38;5;241m=[39m _opener
-[0;32m--> 214[0m [38;5;28;01mreturn[39;00m [43mopener[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m[43murl[49m[43m,[49m[43m [49m[43mdata[49m[43m,[49m[43m [49m[43mtimeout[49m[43m)[49m
+File [0;32m/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/imageio/v3.py:53[0m, in [0;36mimread[0;34m(uri, index, plugin, extension, format_hint, **kwargs)[0m
+[1;32m     50[0m [38;5;28;01mif[39;00m index [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
+[1;32m     51[0m     call_kwargs[[38;5;124m"[39m[38;5;124mindex[39m[38;5;124m"[39m] [38;5;241m=[39m index
+[0;32m---> 53[0m [38;5;28;01mwith[39;00m [43mimopen[49m[43m([49m[43muri[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mr[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mplugin_kwargs[49m[43m)[49m [38;5;28;01mas[39;00m img_file:
+[1;32m     54[0m     [38;5;28;01mreturn[39;00m np[38;5;241m.[39masarray(img_file[38;5;241m.[39mread([38;5;241m*[39m[38;5;241m*[39mcall_kwargs))
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/urllib/request.py:523[0m, in [0;36mOpenerDirector.open[0;34m(self, fullurl, data, timeout)[0m
-[1;32m    521[0m [38;5;28;01mfor[39;00m processor [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mprocess_response[38;5;241m.[39mget(protocol, []):
-[1;32m    522[0m     meth [38;5;241m=[39m [38;5;28mgetattr[39m(processor, meth_name)
-[0;32m--> 523[0m     response [38;5;241m=[39m [43mmeth[49m[43m([49m[43mreq[49m[43m,[49m[43m [49m[43mresponse[49m[43m)[49m
-[1;32m    525[0m [38;5;28;01mreturn[39;00m response
+File [0;32m/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/imageio/core/imopen.py:113[0m, in [0;36mimopen[0;34m(uri, io_mode, plugin, extension, format_hint, legacy_mode, **kwargs)[0m
+[1;32m    111[0m     request[38;5;241m.[39mformat_hint [38;5;241m=[39m format_hint
+[1;32m    112[0m [38;5;28;01melse[39;00m:
+[0;32m--> 113[0m     request [38;5;241m=[39m [43mRequest[49m[43m([49m[43muri[49m[43m,[49m[43m [49m[43mio_mode[49m[43m,[49m[43m [49m[43mformat_hint[49m[38;5;241;43m=[39;49m[43mformat_hint[49m[43m,[49m[43m [49m[43mextension[49m[38;5;241;43m=[39;49m[43mextension[49m[43m)[49m
+[1;32m    115[0m source [38;5;241m=[39m [38;5;124m"[39m[38;5;124m<bytes>[39m[38;5;124m"[39m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(uri, [38;5;28mbytes[39m) [38;5;28;01melse[39;00m uri
+[1;32m    117[0m [38;5;66;03m# fast-path based on plugin[39;00m
+[1;32m    118[0m [38;5;66;03m# (except in legacy mode)[39;00m
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/urllib/request.py:632[0m, in [0;36mHTTPErrorProcessor.http_response[0;34m(self, request, response)[0m
-[1;32m    629[0m [38;5;66;03m# According to RFC 2616, "2xx" code indicates that the client's[39;00m
-[1;32m    630[0m [38;5;66;03m# request was successfully received, understood, and accepted.[39;00m
-[1;32m    631[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m ([38;5;241m200[39m [38;5;241m<[39m[38;5;241m=[39m code [38;5;241m<[39m [38;5;241m300[39m):
-[0;32m--> 632[0m     response [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mparent[49m[38;5;241;43m.[39;49m[43merror[49m[43m([49m
-[1;32m    633[0m [43m        [49m[38;5;124;43m'[39;49m[38;5;124;43mhttp[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mrequest[49m[43m,[49m[43m [49m[43mresponse[49m[43m,[49m[43m [49m[43mcode[49m[43m,[49m[43m [49m[43mmsg[49m[43m,[49m[43m [49m[43mhdrs[49m[43m)[49m
-[1;32m    635[0m [38;5;28;01mreturn[39;00m response
+File [0;32m/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/imageio/core/request.py:247[0m, in [0;36mRequest.__init__[0;34m(self, uri, mode, extension, format_hint, **kwargs)[0m
+[1;32m    244[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mInvalid Request.Mode: [39m[38;5;132;01m{[39;00mmode[38;5;132;01m}[39;00m[38;5;124m"[39m)
+[1;32m    246[0m [38;5;66;03m# Parse what was given[39;00m
+[0;32m--> 247[0m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_parse_uri[49m[43m([49m[43muri[49m[43m)[49m
+[1;32m    249[0m [38;5;66;03m# Set extension[39;00m
+[1;32m    250[0m [38;5;28;01mif[39;00m extension [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/urllib/request.py:561[0m, in [0;36mOpenerDirector.error[0;34m(self, proto, *args)[0m
-[1;32m    559[0m [38;5;28;01mif[39;00m http_err:
-[1;32m    560[0m     args [38;5;241m=[39m ([38;5;28mdict[39m, [38;5;124m'[39m[38;5;124mdefault[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mhttp_error_default[39m[38;5;124m'[39m) [38;5;241m+[39m orig_args
-[0;32m--> 561[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_call_chain[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
+File [0;32m/opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/imageio/core/request.py:382[0m, in [0;36mRequest._parse_uri[0;34m(self, uri)[0m
+[1;32m    380[0m         fn [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_filename_zip[[38;5;241m0[39m]
+[1;32m    381[0m     [38;5;28;01mif[39;00m ([38;5;129;01mnot[39;00m os[38;5;241m.[39mpath[38;5;241m.[39mexists(fn)) [38;5;129;01mand[39;00m (fn [38;5;129;01min[39;00m EXAMPLE_IMAGES):
+[0;32m--> 382[0m         [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(
+[1;32m    383[0m             [38;5;124m"[39m[38;5;124mNo such file: [39m[38;5;132;01m%r[39;00m[38;5;124m. This file looks like one of [39m[38;5;124m"[39m
+[1;32m    384[0m             [38;5;124m"[39m[38;5;124mthe standard images, but from imageio 2.1, [39m[38;5;124m"[39m
+[1;32m    385[0m             [38;5;124m"[39m[38;5;124mstandard images have to be specified using [39m[38;5;124m"[39m
+[1;32m    386[0m             [38;5;124m'[39m[38;5;124m"[39m[38;5;124mimageio:[39m[38;5;132;01m%s[39;00m[38;5;124m"[39m[38;5;124m.[39m[38;5;124m'[39m [38;5;241m%[39m (fn, fn)
+[1;32m    387[0m         )
+[1;32m    389[0m [38;5;66;03m# Make filename absolute[39;00m
+[1;32m    390[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_uri_type [38;5;129;01min[39;00m [URI_FILENAME, URI_ZIPPED]:
 
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/urllib/request.py:494[0m, in [0;36mOpenerDirector._call_chain[0;34m(self, chain, kind, meth_name, *args)[0m
-[1;32m    492[0m [38;5;28;01mfor[39;00m handler [38;5;129;01min[39;00m handlers:
-[1;32m    493[0m     func [38;5;241m=[39m [38;5;28mgetattr[39m(handler, meth_name)
-[0;32m--> 494[0m     result [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m)[49m
-[1;32m    495[0m     [38;5;28;01mif[39;00m result [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
-[1;32m    496[0m         [38;5;28;01mreturn[39;00m result
-
-File [0;32m/opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/urllib/request.py:641[0m, in [0;36mHTTPDefaultErrorHandler.http_error_default[0;34m(self, req, fp, code, msg, hdrs)[0m
-[1;32m    640[0m [38;5;28;01mdef[39;00m [38;5;21mhttp_error_default[39m([38;5;28mself[39m, req, fp, code, msg, hdrs):
-[0;32m--> 641[0m     [38;5;28;01mraise[39;00m HTTPError(req[38;5;241m.[39mfull_url, code, msg, hdrs, fp)
-
-[0;31mHTTPError[0m: HTTP Error 404: Not Found
+[0;31mOSError[0m: No such file: 'camera.png'. This file looks like one of the standard images, but from imageio 2.1, standard images have to be specified using "imageio:camera.png".
 
