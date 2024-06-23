@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_tabular_data_wrangling_with_pandas.html">Tabular Data Wrangling with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_plotting_with_seaborn.html">Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in Scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in scikit-learn</a></li>
 </ul>
 
     </div>
@@ -391,14 +391,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-types-lists-tuples-dictionaries">
 <h1>Data Types: Lists, Tuples, Dictionaries<a class="headerlink" href="#data-types-lists-tuples-dictionaries" title="Permalink to this heading">#</a></h1>
-<p>In this notebook, we’ll explore three important data types in Python: lists, tuples, and dictionaries. These data structures are fundamental to organizing and manipulating data in Python.</p>
+<p>In this notebook, we’ll explore three important data types in Python: lists, tuples, and dictionaries. These data structures allow us to store and organize multiple pieces of information in different ways.</p>
 <section id="lists">
 <h2>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h2>
-<p>Lists are ordered, mutable collections of items. They can contain elements of different types and are defined using square brackets [].</p>
+<p>Lists are ordered, mutable sequences of elements. Let’s create a simple list and examine its properties.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a list</span>
-<span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -409,34 +408,31 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Lists are indexed starting from 0. We can access individual elements using their index.</p>
+<p>Lists are mutable, which means we can modify them after creation. Let’s add an element to our list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accessing list elements</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># First element</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;date&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can access elements in a list using their index. Remember, Python uses 0-based indexing.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># First element</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Last element</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>apple
-cherry
-</pre></div>
-</div>
-</div>
-</div>
-<p>Lists are mutable, which means we can modify their contents after creation.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modifying a list</span>
-<span class="n">fruits</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;blueberry&#39;</span>
-<span class="n">fruits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;date&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fruits</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apple&#39;, &#39;blueberry&#39;, &#39;cherry&#39;, &#39;date&#39;]
+date
 </pre></div>
 </div>
 </div>
@@ -444,11 +440,10 @@ cherry
 </section>
 <section id="tuples">
 <h2>Tuples<a class="headerlink" href="#tuples" title="Permalink to this heading">#</a></h2>
-<p>Tuples are ordered, immutable collections. They are similar to lists but cannot be changed after creation. Tuples are defined using parentheses ().</p>
+<p>Tuples are similar to lists, but they are immutable. Once created, they cannot be modified. Let’s create a tuple and try to modify it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a tuple</span>
-<span class="n">coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coordinates</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">coordinates</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -459,18 +454,10 @@ cherry
 </div>
 </div>
 </div>
-<p>We can access tuple elements similarly to lists, but we cannot modify them.</p>
+<p>If we try to modify a tuple, Python will raise an error. Uncomment the following line to see the error.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accessing tuple elements</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">coordinates</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-20
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># coordinates[0] = 15  # This will raise a TypeError</span>
 </pre></div>
 </div>
 </div>
@@ -478,35 +465,46 @@ cherry
 </section>
 <section id="dictionaries">
 <h2>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this heading">#</a></h2>
-<p>Dictionaries are unordered collections of key-value pairs. They are defined using curly braces {} and use keys to access values.</p>
+<p>Dictionaries are unordered collections of key-value pairs. They are mutable and allow fast lookups. Let’s create a simple dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a dictionary</span>
-<span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">:</span> <span class="s1">&#39;New York&#39;</span><span class="p">}</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 30, &#39;city&#39;: &#39;New York&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 30, &#39;city&#39;: &#39;New York&#39;}
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can access dictionary values using their keys. We can also modify existing values or add new key-value pairs.</p>
+<p>We can access values in a dictionary using their keys.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Accessing and modifying dictionary elements</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alice
+30
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dictionaries are mutable, so we can add or modify key-value pairs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person</span><span class="p">[</span><span class="s1">&#39;job&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Engineer&#39;</span>
 <span class="n">person</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">31</span>
-<span class="n">person</span><span class="p">[</span><span class="s1">&#39;occupation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Engineer&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">person</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>John
-{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 31, &#39;city&#39;: &#39;New York&#39;, &#39;occupation&#39;: &#39;Engineer&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;name&#39;: &#39;Alice&#39;, &#39;age&#39;: 31, &#39;city&#39;: &#39;New York&#39;, &#39;job&#39;: &#39;Engineer&#39;}
 </pre></div>
 </div>
 </div>
@@ -514,13 +512,13 @@ cherry
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h2>
-<p>We’ve explored three important data types in Python:</p>
+<p>In this notebook, we’ve explored three important data types in Python:</p>
 <ul class="simple">
-<li><p>Lists: ordered, mutable collections</p></li>
-<li><p>Tuples: ordered, immutable collections</p></li>
-<li><p>Dictionaries: unordered collections of key-value pairs</p></li>
+<li><p>Lists: ordered, mutable sequences</p></li>
+<li><p>Tuples: ordered, immutable sequences</p></li>
+<li><p>Dictionaries: unordered, mutable collections of key-value pairs</p></li>
 </ul>
-<p>Each has its own use cases and characteristics, making them valuable tools for different scenarios in Python programming.</p>
+<p>Each of these data types has its own use cases and advantages, making them essential tools in Python programming.</p>
 </section>
 </section>
 
@@ -605,7 +603,7 @@ cherry
   <div class="footer-item">
     
 <p class="component-author">
-By AI Generated
+By AI-Generated
 </p>
 
   </div>

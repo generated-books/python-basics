@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_tabular_data_wrangling_with_pandas.html">Tabular Data Wrangling with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_plotting_with_seaborn.html">Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in Scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in scikit-learn</a></li>
 </ul>
 
     </div>
@@ -351,7 +351,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -367,6 +369,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-statement">The ‘if’ Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-else-statement">The ‘if-else’ Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-elif-else-statement">The ‘if-elif-else’ Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-conditional-statements">Nested Conditional Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -378,11 +392,23 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="conditional-statements-in-python">
 <h1>Conditional Statements in Python<a class="headerlink" href="#conditional-statements-in-python" title="Permalink to this heading">#</a></h1>
-<p>Conditional statements allow us to execute different code based on whether certain conditions are true or false. In Python, we primarily use <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> for conditional execution.</p>
-<p>Let’s start with a simple <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. This code will check if a number is positive and print a message accordingly.</p>
+<p>Conditional statements allow us to make decisions in our code based on certain conditions. In this notebook, we’ll explore the basic structure and usage of conditional statements in Python.</p>
+<p>Let’s start by importing the required libraries. In this case, we don’t need any specific libraries for conditional statements, but it’s good practice to include this cell for consistency.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># No specific imports required for this lesson</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="the-if-statement">
+<h2>The ‘if’ Statement<a class="headerlink" href="#the-if-statement" title="Permalink to this heading">#</a></h2>
+<p>The most basic form of a conditional statement is the ‘if’ statement. It executes a block of code if a specified condition is true.</p>
+<p>Let’s create a simple ‘if’ statement to check if a number is positive.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">5</span>
+
 <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> is positive&quot;</span><span class="p">)</span>
 </pre></div>
@@ -394,10 +420,15 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Now, let’s introduce the <code class="docutils literal notranslate"><span class="pre">else</span></code> statement. This allows us to specify what should happen if the condition is not met.</p>
+</section>
+<section id="the-if-else-statement">
+<h2>The ‘if-else’ Statement<a class="headerlink" href="#the-if-else-statement" title="Permalink to this heading">#</a></h2>
+<p>We can extend the ‘if’ statement with an ‘else’ clause to specify what should happen if the condition is false.</p>
+<p>Let’s modify our previous example to handle both positive and non-positive numbers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span>
+
 <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> is positive&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
@@ -411,10 +442,15 @@ document.write(`
 </div>
 </div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">elif</span></code> statement allows us to check multiple conditions. Let’s categorize a number as positive, negative, or zero.</p>
+</section>
+<section id="the-if-elif-else-statement">
+<h2>The ‘if-elif-else’ Statement<a class="headerlink" href="#the-if-elif-else-statement" title="Permalink to this heading">#</a></h2>
+<p>For multiple conditions, we can use the ‘elif’ (short for ‘else if’) statement. This allows us to check several conditions in sequence.</p>
+<p>Let’s create an example that categorizes a number as positive, negative, or zero.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">0</span>
+
 <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> is positive&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -430,51 +466,42 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Conditional statements can also be nested. Here’s an example of checking a person’s age and whether they’re a student.</p>
+</section>
+<section id="nested-conditional-statements">
+<h2>Nested Conditional Statements<a class="headerlink" href="#nested-conditional-statements" title="Permalink to this heading">#</a></h2>
+<p>We can also nest conditional statements inside each other for more complex decision-making.</p>
+<p>Let’s create an example that categorizes a number and checks if it’s even or odd.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">is_student</span> <span class="o">=</span> <span class="kc">True</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">number</span> <span class="o">=</span> <span class="mi">4</span>
 
-<span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are an adult&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">is_student</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are an adult student&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">number</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">number</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> is positive&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are an adult, but not a student&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> is negative&quot;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">number</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> is even&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> is odd&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You are not an adult&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2"> is zero&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You are an adult
-You are an adult student
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4 is positive
+4 is even
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally, let’s look at how we can use logical operators (<code class="docutils literal notranslate"><span class="pre">and</span></code>, <code class="docutils literal notranslate"><span class="pre">or</span></code>, <code class="docutils literal notranslate"><span class="pre">not</span></code>) in our conditional statements.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">is_sunny</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="k">if</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="ow">and</span> <span class="n">is_sunny</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s a nice day for a picnic!&quot;</span><span class="p">)</span>
-<span class="k">elif</span> <span class="n">temperature</span> <span class="o">&gt;</span> <span class="mi">20</span> <span class="ow">or</span> <span class="n">is_sunny</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The weather is okay, but not perfect.&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;It&#39;s not a good day to be outside.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>It&#39;s a nice day for a picnic!
-</pre></div>
-</div>
-</div>
-</div>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
+<p>Conditional statements are fundamental to programming logic. They allow your code to make decisions and execute different paths based on specific conditions. Practice using these statements to create more dynamic and responsive programs!</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -532,6 +559,24 @@ You are an adult student
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-statement">The ‘if’ Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-else-statement">The ‘if-else’ Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-if-elif-else-statement">The ‘if-elif-else’ Statement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-conditional-statements">Nested Conditional Statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -541,7 +586,7 @@ You are an adult student
   <div class="footer-item">
     
 <p class="component-author">
-By AI Generated
+By AI-Generated
 </p>
 
   </div>

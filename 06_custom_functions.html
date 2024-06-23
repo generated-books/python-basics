@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_tabular_data_wrangling_with_pandas.html">Tabular Data Wrangling with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_plotting_with_seaborn.html">Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in Scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in scikit-learn</a></li>
 </ul>
 
     </div>
@@ -379,13 +379,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="custom-functions-in-python">
 <h1>Custom Functions in Python<a class="headerlink" href="#custom-functions-in-python" title="Permalink to this heading">#</a></h1>
 <p>In this notebook, we’ll explore how to create and use custom functions in Python. Functions are reusable blocks of code that perform specific tasks, making our code more organized and efficient.</p>
-<p>Let’s start by defining a simple function that greets a person by name. We’ll use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword to define our function.</p>
+<p>Let’s start by defining a simple function that greets a person by name.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span>
 
-<span class="c1"># Test the function</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Alice&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -396,13 +395,12 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Now, let’s create a function that takes multiple parameters. This function will calculate the area of a rectangle.</p>
+<p>Now, let’s create a function that takes multiple parameters and performs a calculation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_rectangle_area</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
 
-<span class="c1"># Test the function</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">calculate_rectangle_area</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -413,78 +411,112 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Functions can also have default parameter values. Let’s modify our greeting function to have a default greeting.</p>
+<p>Functions can have default parameter values, which are used when the argument is not provided.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">greeting</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">):</span>
-    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">greeting</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">exponent</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">base</span> <span class="o">**</span> <span class="n">exponent</span>
 
-<span class="c1"># Test the function with and without specifying the greeting</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Bob&quot;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">greet</span><span class="p">(</span><span class="s2">&quot;Charlie&quot;</span><span class="p">,</span> <span class="s2">&quot;Good morning&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>      <span class="c1"># Uses default exponent of 2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">power</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>   <span class="c1"># Overrides default exponent</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Bob!
-Good morning, Charlie!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9
+27
 </pre></div>
 </div>
 </div>
 </div>
-<p>Functions can return multiple values as a tuple. Let’s create a function that returns both the area and perimeter of a rectangle.</p>
+<p>Functions can return multiple values as a tuple.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rectangle_properties</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">width</span><span class="p">):</span>
-    <span class="n">area</span> <span class="o">=</span> <span class="n">length</span> <span class="o">*</span> <span class="n">width</span>
-    <span class="n">perimeter</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">length</span> <span class="o">+</span> <span class="n">width</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">area</span><span class="p">,</span> <span class="n">perimeter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">min_max</span><span class="p">(</span><span class="n">numbers</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 
-<span class="c1"># Test the function</span>
-<span class="n">area</span><span class="p">,</span> <span class="n">perimeter</span> <span class="o">=</span> <span class="n">rectangle_properties</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Area: </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2">, Perimeter: </span><span class="si">{</span><span class="n">perimeter</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">min_max</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Area: 20, Perimeter: 18
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 9)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally, let’s create a function that uses a docstring to provide documentation about its purpose and parameters.</p>
+<p>We can use *args to allow a function to accept any number of positional arguments.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the area of a circle given its radius.</span>
-<span class="sd">    </span>
-<span class="sd">    Args:</span>
-<span class="sd">        radius (float): The radius of the circle.</span>
-<span class="sd">    </span>
-<span class="sd">    Returns:</span>
-<span class="sd">        float: The area of the circle.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">import</span> <span class="nn">math</span>
-    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sum_all</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
 
-<span class="c1"># Test the function</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">calculate_circle_area</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
-
-<span class="c1"># Print the docstring</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">calculate_circle_area</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sum_all</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>28.274333882308138
-Calculate the area of a circle given its radius.
-    
-    Args:
-        radius (float): The radius of the circle.
-    
-    Returns:
-        float: The area of the circle.
-    
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>6
+15
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, **kwargs allows a function to accept any number of keyword arguments.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">print_info</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="s2">&quot;New York&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>name: Alice
+age: 30
+city: New York
+</pre></div>
+</div>
+</div>
+</div>
+<p>Functions can be nested within other functions, allowing for more complex logic and encapsulation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">inner_function</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">inner_function</span>
+
+<span class="n">add_five</span> <span class="o">=</span> <span class="n">outer_function</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">add_five</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lambda functions are small, anonymous functions that can be used for simple operations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">square</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">square</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="n">squared_numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">squared_numbers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+[1, 4, 9, 16, 25]
 </pre></div>
 </div>
 </div>
@@ -555,7 +587,7 @@ Calculate the area of a circle given its radius.
   <div class="footer-item">
     
 <p class="component-author">
-By AI Generated
+By AI-Generated
 </p>
 
   </div>

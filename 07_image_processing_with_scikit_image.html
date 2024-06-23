@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Image Processing with scikit-image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_tabular_data_wrangling_with_pandas.html">Tabular Data Wrangling with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_plotting_with_seaborn.html">Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in Scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in scikit-learn</a></li>
 </ul>
 
     </div>
@@ -378,115 +378,106 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="image-processing-with-scikit-image">
 <h1>Image Processing with scikit-image<a class="headerlink" href="#image-processing-with-scikit-image" title="Permalink to this heading">#</a></h1>
-<p>In this notebook, we’ll explore basic image processing techniques using the scikit-image library, a collection of algorithms for image processing in Python.</p>
-<p>First, let’s import the necessary libraries and load a sample image.</p>
+<p>In this notebook, we’ll explore basic image processing techniques using the scikit-image library. We’ll learn how to load, display, and manipulate images using various filters and transformations.</p>
+<p>First, let’s import the necessary libraries. We’ll use scikit-image for image processing and matplotlib for displaying images.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">filters</span><span class="p">,</span> <span class="n">color</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">filters</span>
-
-<span class="c1"># Load the sample 3D cell image</span>
-<span class="n">cells</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cells3d</span><span class="p">()</span>
-<span class="n">image</span> <span class="o">=</span> <span class="n">cells</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Select one 2D slice from the 3D image</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s load a sample image from scikit-image’s data module. We’ll use the ‘cells3d’ image for this example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cells3d</span><span class="p">()[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Select a specific slice from the 3D image</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">filters</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Load the sample 3D cell image</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">cells</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cells3d</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">image</span> <span class="o">=</span> <span class="n">cells</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Select one 2D slice from the 3D image</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/data/_fetchers.py:631,</span> in <span class="ni">cells3d</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="k">def</span> <span class="nf">cells3d</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">606</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;3D fluorescence microscopy image of cells.</span>
-<span class="g g-Whitespace">    </span><span class="mi">607</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span><span class="sd">     The returned data is a 3D multichannel array with dimensions provided in</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">628</span><span class="sd">         * After rescaling the voxel size is ``(0.29 0.26 0.26)``.</span>
-<span class="g g-Whitespace">    </span><span class="mi">629</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">631</span>     <span class="k">return</span> <span class="n">_load</span><span class="p">(</span><span class="s2">&quot;data/cells3d.tif&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/data/_fetchers.py:334,</span> in <span class="ni">_load</span><span class="nt">(f, as_gray)</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span> <span class="c1"># importing io is quite slow since it scans all the backends</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span> <span class="c1"># we lazy import it here</span>
-<span class="g g-Whitespace">    </span><span class="mi">333</span> <span class="kn">from</span> <span class="nn">..io</span> <span class="kn">import</span> <span class="n">imread</span>
-<span class="ne">--&gt; </span><span class="mi">334</span> <span class="k">return</span> <span class="n">imread</span><span class="p">(</span><span class="n">_fetch</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">as_gray</span><span class="o">=</span><span class="n">as_gray</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/data/_fetchers.py:217,</span> in <span class="ni">_fetch</span><span class="nt">(data_filename)</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="k">if</span> <span class="n">_image_fetcher</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">_skip_pytest_case_requiring_pooch</span><span class="p">(</span><span class="n">data_filename</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">217</span>     <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span>         <span class="s2">&quot;The requested file is part of the scikit-image distribution, &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="s2">&quot;but requires the installation of an optional dependency, pooch. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="s2">&quot;To install pooch, use your preferred python package manager. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="s2">&quot;Follow installation instruction found at &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">222</span>         <span class="s2">&quot;https://scikit-image.org/docs/stable/install.html&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">224</span> <span class="c1"># Download the data with pooch which caches it automatically</span>
-<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="n">_ensure_cache_dir</span><span class="p">(</span><span class="n">target_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: The requested file is part of the scikit-image distribution, but requires the installation of an optional dependency, pooch. To install pooch, use your preferred python package manager. Follow installation instruction found at https://scikit-image.org/docs/stable/install.html
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Downloading file &#39;data/cells3d.tif&#39; from &#39;https://gitlab.com/scikit-image/data/-/raw/2cdc5ce89b334d28f06a58c9f0ca21aa6992a5ba/cells3d.tif&#39; to &#39;/home/runner/.cache/scikit-image/0.21.0&#39;.
 </pre></div>
 </div>
+<img alt="_images/888d3c7d4b8650031f956074e625e22a184c0de3059d1c4eef6cf693fb28b31d.png" src="_images/888d3c7d4b8650031f956074e625e22a184c0de3059d1c4eef6cf693fb28b31d.png" />
 </div>
 </div>
-<p>Now, let’s display the original image to see what we’re working with.</p>
+<p>Let’s apply a Gaussian filter to smooth the image. This filter reduces noise and blurs the image slightly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Original Image&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gaussian_image</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gaussian_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gaussian Filtered Image&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/82ccc28529b96c5896071b6fcb5d9d3adb0ddaf09a922893a1023537cafb6e67.png" src="_images/82ccc28529b96c5896071b6fcb5d9d3adb0ddaf09a922893a1023537cafb6e67.png" />
 </div>
-<p>Let’s apply a Gaussian filter to smooth the image and reduce noise.</p>
+</div>
+<p>Next, we’ll apply edge detection using the Sobel filter. This filter highlights edges in the image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smoothed</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">smoothed</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Smoothed Image&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Next, we’ll apply edge detection using the Sobel filter.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">sobel</span><span class="p">(</span><span class="n">smoothed</span><span class="p">)</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">sobel</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Edge Detection&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Edge Detection&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/559df7e4106785e1e094cafd5ce3c993bb622fa10f5cb6487b35551dd110ee53.png" src="_images/559df7e4106785e1e094cafd5ce3c993bb622fa10f5cb6487b35551dd110ee53.png" />
 </div>
-<p>Finally, let’s apply a threshold to create a binary image.</p>
+</div>
+<p>Now, let’s threshold the image to create a binary image. This separates the foreground from the background.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">smoothed</span><span class="p">)</span>
-<span class="n">binary</span> <span class="o">=</span> <span class="n">smoothed</span> <span class="o">&gt;</span> <span class="n">threshold</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Binary Image&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold_value</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">binary_image</span> <span class="o">=</span> <span class="n">image</span> <span class="o">&gt;</span> <span class="n">threshold_value</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Binary Image&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/e6a092f9a055828287d7c023ef583a31bb6826d8f212b28b8f951111f8ccb0dd.png" src="_images/e6a092f9a055828287d7c023ef583a31bb6826d8f212b28b8f951111f8ccb0dd.png" />
 </div>
-<p>This notebook has demonstrated some basic image processing techniques using scikit-image, including smoothing, edge detection, and thresholding.</p>
+</div>
+<p>Finally, let’s compare the original image with the processed versions side by side.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Original Image&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gaussian_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Gaussian Filtered&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Edge Detection&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary_image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Binary Image&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">():</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3bc5500ad832f44b040a51a39f726032cf051b50bf8b55e47cb13635bbf2f082.png" src="_images/3bc5500ad832f44b040a51a39f726032cf051b50bf8b55e47cb13635bbf2f082.png" />
+</div>
+</div>
+<p>This notebook has introduced you to basic image processing techniques using scikit-image. You’ve learned how to load images, apply filters, detect edges, and create binary images. These fundamental operations form the basis for more advanced image processing tasks.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -553,7 +544,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By AI Generated
+By AI-Generated
 </p>
 
   </div>

@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_tabular_data_wrangling_with_pandas.html">Tabular Data Wrangling with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_plotting_with_seaborn.html">Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in Scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in scikit-learn</a></li>
 </ul>
 
     </div>
@@ -378,8 +378,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="for-loops-in-python">
 <h1>For-loops in Python<a class="headerlink" href="#for-loops-in-python" title="Permalink to this heading">#</a></h1>
-<p>For-loops are a fundamental construct in Python that allow you to iterate over a sequence of elements. They are incredibly useful for performing repeated operations on collections of data.</p>
-<p>Let’s start with a simple example of a for-loop that iterates over a list of numbers.</p>
+<p>This notebook introduces the concept of for-loops in Python, a fundamental tool for iterating over sequences and performing repetitive tasks efficiently.</p>
+<p>Let’s start with a simple for-loop that iterates over a list of numbers. This demonstrates the basic syntax of a for-loop in Python.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -398,45 +398,62 @@ document.write(`
 </div>
 </div>
 </div>
-<p>We can also use for-loops with the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function to iterate a specific number of times.</p>
+<p>We can also use the <code class="docutils literal notranslate"><span class="pre">range()</span></code> function to generate a sequence of numbers to iterate over. This is useful when you want to repeat an action a specific number of times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iteration </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iteration </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 0
-Iteration 1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1
 Iteration 2
 Iteration 3
 Iteration 4
+Iteration 5
 </pre></div>
 </div>
 </div>
 </div>
-<p>For-loops can be used to iterate over strings, treating them as sequences of characters.</p>
+<p>For-loops can be used with strings to iterate over each character. This is helpful for tasks like counting specific characters or performing operations on each character.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
-<span class="k">for</span> <span class="n">letter</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">letter</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">char</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>P
-y
-t
-h
-o
-n
+Y
+T
+H
+O
+N
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can use for-loops to iterate over key-value pairs in a dictionary using the <code class="docutils literal notranslate"><span class="pre">.items()</span></code> method.</p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function with a for-loop to get both the index and the value of each item in a sequence. This is particularly useful when you need to track the position of items.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fruits</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index 0: apple
+Index 1: banana
+Index 2: cherry
+</pre></div>
+</div>
+</div>
+</div>
+<p>For-loops can also be used with dictionaries. By default, looping over a dictionary iterates over its keys. We can use the <code class="docutils literal notranslate"><span class="pre">.items()</span></code> method to iterate over both keys and values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;New York&quot;</span><span class="p">}</span>
@@ -453,33 +470,19 @@ city: New York
 </div>
 </div>
 </div>
-<p>For-loops can be combined with list comprehensions for concise and powerful data manipulation.</p>
+<p>Finally, let’s look at a practical example where we use a for-loop to calculate the sum of numbers in a list. This demonstrates how loops can be used for data processing tasks.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">squares</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="n">num</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of the numbers is: </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Finally, let’s look at how we can use the <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function with for-loops to get both the index and value of elements in a sequence.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fruits</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index 0: apple
-Index 1: banana
-Index 2: cherry
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The sum of the numbers is: 150
 </pre></div>
 </div>
 </div>
@@ -550,7 +553,7 @@ Index 2: cherry
   <div class="footer-item">
     
 <p class="component-author">
-By AI Generated
+By AI-Generated
 </p>
 
   </div>

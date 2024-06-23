@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tabular Data Wrangling with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="09_plotting_with_seaborn.html">Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in Scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in scikit-learn</a></li>
 </ul>
 
     </div>
@@ -378,139 +378,139 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tabular-data-wrangling-with-pandas">
 <h1>Tabular Data Wrangling with Pandas<a class="headerlink" href="#tabular-data-wrangling-with-pandas" title="Permalink to this heading">#</a></h1>
-<p>This notebook introduces the basics of data manipulation using the pandas library in Python. Pandas is a powerful tool for working with structured data, particularly in tabular format.</p>
-<p>First, we’ll import the pandas library and create a simple DataFrame to work with.</p>
+<p>In this notebook, we’ll explore how to manipulate and analyze tabular data using the powerful pandas library in Python. Pandas is essential for data scientists and analysts working with structured data.</p>
+<p>First, let’s import the pandas library and create a sample DataFrame to work with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span class="c1"># Create a sample DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">],</span>
     <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
-    <span class="s1">&#39;City&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;Los Angeles&#39;</span><span class="p">,</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">]</span>
-<span class="p">}</span>
+    <span class="s1">&#39;City&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;London&#39;</span><span class="p">,</span> <span class="s1">&#39;Paris&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">75000</span><span class="p">,</span> <span class="mi">80000</span><span class="p">,</span> <span class="mi">65000</span><span class="p">]</span>
+<span class="p">})</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City
-0    Alice   25       New York
-1      Bob   30  San Francisco
-2  Charlie   35    Los Angeles
-3    David   28        Chicago
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City  Salary
+0    Alice   25       New York   50000
+1      Bob   30  San Francisco   75000
+2  Charlie   35         London   80000
+3    David   28          Paris   65000
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s examine the structure of our DataFrame using the <code class="docutils literal notranslate"><span class="pre">info()</span></code> method.</p>
+<p>Now, let’s explore some basic operations on our DataFrame, such as selecting columns and filtering rows.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select specific columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">]])</span>
+
+<span class="c1"># Filter rows based on a condition</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 4 entries, 0 to 3
-Data columns (total 3 columns):
- #   Column  Non-Null Count  Dtype 
----  ------  --------------  ----- 
- 0   Name    4 non-null      object
- 1   Age     4 non-null      int64 
- 2   City    4 non-null      object
-dtypes: int64(1), object(2)
-memory usage: 224.0+ bytes
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age
+0    Alice   25
+1      Bob   30
+2  Charlie   35
+3    David   28
+      Name  Age    City  Salary
+2  Charlie   35  London   80000
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, we’ll demonstrate how to select a single column from the DataFrame.</p>
+<p>Pandas provides powerful functions for data manipulation. Let’s look at sorting and adding new columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    25
-1    30
-2    35
-3    28
-Name: Age, dtype: int64
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can also filter rows based on a condition. Let’s select all individuals older than 30.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">older_than_30</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">older_than_30</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age         City
-2  Charlie   35  Los Angeles
-</pre></div>
-</div>
-</div>
-</div>
-<p>Adding a new column to the DataFrame is straightforward. Let’s add a ‘Profession’ column.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Profession&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Engineer&#39;</span><span class="p">,</span> <span class="s1">&#39;Teacher&#39;</span><span class="p">,</span> <span class="s1">&#39;Doctor&#39;</span><span class="p">,</span> <span class="s1">&#39;Artist&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort the DataFrame by Age</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">))</span>
+
+<span class="c1"># Add a new column</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Bonus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.1</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City Profession
-0    Alice   25       New York   Engineer
-1      Bob   30  San Francisco    Teacher
-2  Charlie   35    Los Angeles     Doctor
-3    David   28        Chicago     Artist
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City  Salary
+0    Alice   25       New York   50000
+3    David   28          Paris   65000
+1      Bob   30  San Francisco   75000
+2  Charlie   35         London   80000
+      Name  Age           City  Salary   Bonus
+0    Alice   25       New York   50000  5000.0
+1      Bob   30  San Francisco   75000  7500.0
+2  Charlie   35         London   80000  8000.0
+3    David   28          Paris   65000  6500.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can perform basic calculations on numerical columns. Let’s calculate the average age.</p>
+<p>Group operations are crucial for data analysis. Let’s group our data by City and calculate some statistics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_age</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The average age is: </span><span class="si">{</span><span class="n">average_age</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by City and calculate mean Age and Salary</span>
+<span class="n">city_stats</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;City&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">city_stats</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The average age is: 29.50
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                Age   Salary
+City                        
+London         35.0  80000.0
+New York       25.0  50000.0
+Paris          28.0  65000.0
+San Francisco  30.0  75000.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally, let’s demonstrate how to sort the DataFrame based on a column.</p>
+<p>Finally, let’s demonstrate how to handle missing data, which is common in real-world datasets.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sorted_df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Introduce some missing values</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Salary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Fill missing values</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City Profession
-2  Charlie   35    Los Angeles     Doctor
-1      Bob   30  San Francisco    Teacher
-3    David   28        Chicago     Artist
-0    Alice   25       New York   Engineer
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name   Age           City   Salary   Bonus
+0    Alice  25.0       New York  50000.0  5000.0
+1      Bob  30.0  San Francisco      NaN  7500.0
+2  Charlie  35.0         London  80000.0  8000.0
+3    David   NaN          Paris  65000.0  6500.0
+      Name   Age           City   Salary   Bonus
+0    Alice  25.0       New York  50000.0  5000.0
+1      Bob  30.0  San Francisco  65000.0  7500.0
+2  Charlie  35.0         London  80000.0  8000.0
+3    David  30.0          Paris  65000.0  6500.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>This concludes our introduction to tabular data wrangling with pandas. We’ve covered creating DataFrames, selecting columns, filtering rows, adding columns, performing calculations, and sorting data.</p>
+<p>This notebook has covered some fundamental operations in pandas for tabular data wrangling. Practice these techniques to become proficient in data manipulation with pandas!</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -577,7 +577,7 @@ Name: Age, dtype: int64
   <div class="footer-item">
     
 <p class="component-author">
-By AI Generated
+By AI-Generated
 </p>
 
   </div>

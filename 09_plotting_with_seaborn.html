@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = '09_plotting_with_seaborn';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Random Forest Classifiers in Scikit-learn" href="10_random_forest_classifiers_scikit_learn.html" />
+    <link rel="next" title="Random Forest Classifiers in scikit-learn" href="10_random_forest_classifiers_scikit_learn.html" />
     <link rel="prev" title="Tabular Data Wrangling with Pandas" href="08_tabular_data_wrangling_with_pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
 <li class="toctree-l1"><a class="reference internal" href="08_tabular_data_wrangling_with_pandas.html">Tabular Data Wrangling with Pandas</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotting with Seaborn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in Scikit-learn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_random_forest_classifiers_scikit_learn.html">Random Forest Classifiers in scikit-learn</a></li>
 </ul>
 
     </div>
@@ -378,38 +378,28 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="plotting-with-seaborn">
 <h1>Plotting with Seaborn<a class="headerlink" href="#plotting-with-seaborn" title="Permalink to this heading">#</a></h1>
-<p>Seaborn is a powerful data visualization library built on top of Matplotlib. It provides a high-level interface for creating attractive and informative statistical graphics. In this notebook, we’ll explore some basic plotting techniques using Seaborn.</p>
-<p>First, let’s import the necessary libraries and set up our environment.</p>
+<p>In this notebook, we’ll explore how to create beautiful and informative plots using Seaborn, a statistical data visualization library built on top of Matplotlib. Seaborn provides a high-level interface for drawing attractive and informative statistical graphics.</p>
+<p>First, let’s import the necessary libraries and set the style for our plots.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
 <span class="c1"># Set the style for our plots</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x600 with 0 Axes&gt;
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x600 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, let’s create some sample data to work with.</p>
+<p>Now, let’s create some sample data to work with. We’ll use Pandas to create a DataFrame with random data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a sample dataset</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
-    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
     <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="mi">100</span><span class="p">)</span>
 <span class="p">})</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -443,32 +433,32 @@ document.write(`
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.548814</td>
-      <td>0.677817</td>
-      <td>C</td>
+      <td>1.764052</td>
+      <td>1.883151</td>
+      <td>A</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.715189</td>
-      <td>0.270008</td>
+      <td>0.400157</td>
+      <td>-1.347759</td>
       <td>C</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.602763</td>
-      <td>0.735194</td>
-      <td>A</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.544883</td>
-      <td>0.962189</td>
+      <td>0.978738</td>
+      <td>-1.270485</td>
       <td>B</td>
     </tr>
     <tr>
+      <th>3</th>
+      <td>2.240893</td>
+      <td>0.969397</td>
+      <td>C</td>
+    </tr>
+    <tr>
       <th>4</th>
-      <td>0.423655</td>
-      <td>0.248753</td>
+      <td>1.867558</td>
+      <td>-1.173123</td>
       <td>B</td>
     </tr>
   </tbody>
@@ -478,56 +468,46 @@ document.write(`
 <p>Let’s start with a simple scatter plot using Seaborn’s <code class="docutils literal notranslate"><span class="pre">scatterplot</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simple Scatter Plot&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatter Plot&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8a618c86da000a0c8b977401c02fd50eb14271c437c318ff5d8ec070b0e01fb0.png" src="_images/8a618c86da000a0c8b977401c02fd50eb14271c437c318ff5d8ec070b0e01fb0.png" />
+<img alt="_images/4bf5d02c2041d82c13b81f75516f37443104330bd8d4d8ff3634b11a8b2b65f1.png" src="_images/4bf5d02c2041d82c13b81f75516f37443104330bd8d4d8ff3634b11a8b2b65f1.png" />
 </div>
 </div>
-<p>Now, let’s create a scatter plot with different colors for each category.</p>
+<p>Next, let’s create a box plot to visualize the distribution of ‘x’ for each category.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatter Plot with Categories&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Box Plot&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8f17563f06a567d305aab2cd8ee390bb216990ce66fe9e331777456ffe4542b1.png" src="_images/8f17563f06a567d305aab2cd8ee390bb216990ce66fe9e331777456ffe4542b1.png" />
+<img alt="_images/3c704d38c4f9b9645e7ddab7945c2f62ed2bed8847b7ebc386308c01696ad71d.png" src="_images/3c704d38c4f9b9645e7ddab7945c2f62ed2bed8847b7ebc386308c01696ad71d.png" />
 </div>
 </div>
-<p>Seaborn also provides easy ways to visualize distributions. Let’s create a histogram.</p>
+<p>Now, let’s create a violin plot, which combines a box plot with a kernel density estimation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram with KDE&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Violin Plot&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2b22890e717dfcdee6d2e7b2512b29b2a1aaf8100457264de21866be9d5c73f2.png" src="_images/2b22890e717dfcdee6d2e7b2512b29b2a1aaf8100457264de21866be9d5c73f2.png" />
+<img alt="_images/5390fc084f7141cb98083a683fb3a187b8ae58e9b34adc5a07064e7b113f130a.png" src="_images/5390fc084f7141cb98083a683fb3a187b8ae58e9b34adc5a07064e7b113f130a.png" />
 </div>
 </div>
-<p>We can also create box plots to compare distributions across categories.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Box Plot by Category&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/69249e1ebe8cd4ec6c22f32afe20662bfc95bf1618f07a15f6c725ddfde1c7e1.png" src="_images/69249e1ebe8cd4ec6c22f32afe20662bfc95bf1618f07a15f6c725ddfde1c7e1.png" />
-</div>
-</div>
-<p>Finally, let’s create a pair plot to visualize relationships between multiple variables.</p>
+<p>Let’s create a pair plot to visualize relationships between multiple variables at once.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
@@ -537,10 +517,25 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/89bd67db8c2be4f167c16774387430b478c4f8ac93a166e536a6a8cb4f5547cf.png" src="_images/89bd67db8c2be4f167c16774387430b478c4f8ac93a166e536a6a8cb4f5547cf.png" />
+<img alt="_images/7f75cb78905b50a3aac5644c315d900fdf5a4a81ff4cdbb7a4bdc7399f782748.png" src="_images/7f75cb78905b50a3aac5644c315d900fdf5a4a81ff4cdbb7a4bdc7399f782748.png" />
 </div>
 </div>
-<p>This concludes our introduction to plotting with Seaborn. We’ve covered scatter plots, histograms, box plots, and pair plots, demonstrating how easy it is to create informative visualizations with just a few lines of code.</p>
+<p>Finally, let’s create a heatmap to visualize the correlation between variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">correlation</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">correlation</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;coolwarm&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlation Heatmap&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d2b24f5f21b908007e8766d8727c1c654afdfbc5c27292b88c5d1adceb14b50d.png" src="_images/d2b24f5f21b908007e8766d8727c1c654afdfbc5c27292b88c5d1adceb14b50d.png" />
+</div>
+</div>
+<p>This concludes our introduction to plotting with Seaborn. We’ve covered several types of plots, including scatter plots, box plots, violin plots, pair plots, and heatmaps. Seaborn offers many more plot types and customization options, which you can explore in the official documentation.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -587,7 +582,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Random Forest Classifiers in Scikit-learn</p>
+        <p class="prev-next-title">Random Forest Classifiers in scikit-learn</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -607,7 +602,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By AI Generated
+By AI-Generated
 </p>
 
   </div>
