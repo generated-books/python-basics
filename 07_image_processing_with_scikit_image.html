@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_introduction_to_jupyter_notebooks.html">Introduction to Jupyter Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_mathematical_operations.html">Mathematical Operations in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_data_types_lists_tuples_dictionaries.html">Data Types: Lists, Tuples, Dictionaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_for_loops.html">For Loops in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_for_loops.html">For-loops in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_conditional_statements.html">Conditional Statements in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_custom_functions.html">Custom Functions in Python</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Image Processing with scikit-image</a></li>
@@ -378,130 +378,115 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="image-processing-with-scikit-image">
 <h1>Image Processing with scikit-image<a class="headerlink" href="#image-processing-with-scikit-image" title="Permalink to this heading">#</a></h1>
-<p>In this notebook, we’ll explore basic image processing techniques using the scikit-image library in Python. We’ll cover loading images, basic manipulations, and some common image processing operations.</p>
-<p>First, let’s import the necessary libraries. We’ll use scikit-image for image processing and matplotlib for displaying images.</p>
+<p>In this notebook, we’ll explore basic image processing techniques using the scikit-image library, a collection of algorithms for image processing in Python.</p>
+<p>First, let’s import the necessary libraries and load a sample image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">io</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">filters</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now, let’s load a sample image. We’ll use the ‘camera’ image that comes with scikit-image.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">image</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;camera.png&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">filters</span>
+
+<span class="c1"># Load the sample 3D cell image</span>
+<span class="n">cells</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cells3d</span><span class="p">()</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">cells</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Select one 2D slice from the 3D image</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">image</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s1">&#39;camera.png&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">skimage</span> <span class="kn">import</span> <span class="n">data</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">filters</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="c1"># Load the sample 3D cell image</span>
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">cells</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">cells3d</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">image</span> <span class="o">=</span> <span class="n">cells</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Select one 2D slice from the 3D image</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/io/_io.py:53,</span> in <span class="ni">imread</span><span class="nt">(fname, as_gray, plugin, **plugin_args)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>         <span class="n">plugin</span> <span class="o">=</span> <span class="s1">&#39;tifffile&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">52</span> <span class="k">with</span> <span class="n">file_or_url_context</span><span class="p">(</span><span class="n">fname</span><span class="p">)</span> <span class="k">as</span> <span class="n">fname</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">53</span>     <span class="n">img</span> <span class="o">=</span> <span class="n">call_plugin</span><span class="p">(</span><span class="s1">&#39;imread&#39;</span><span class="p">,</span> <span class="n">fname</span><span class="p">,</span> <span class="n">plugin</span><span class="o">=</span><span class="n">plugin</span><span class="p">,</span> <span class="o">**</span><span class="n">plugin_args</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s1">&#39;ndim&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="k">return</span> <span class="n">img</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/data/_fetchers.py:631,</span> in <span class="ni">cells3d</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span> <span class="k">def</span> <span class="nf">cells3d</span><span class="p">():</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;3D fluorescence microscopy image of cells.</span>
+<span class="g g-Whitespace">    </span><span class="mi">607</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">608</span><span class="sd">     The returned data is a 3D multichannel array with dimensions provided in</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">628</span><span class="sd">         * After rescaling the voxel size is ``(0.29 0.26 0.26)``.</span>
+<span class="g g-Whitespace">    </span><span class="mi">629</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">631</span>     <span class="k">return</span> <span class="n">_load</span><span class="p">(</span><span class="s2">&quot;data/cells3d.tif&quot;</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/io/manage_plugins.py:205,</span> in <span class="ni">call_plugin</span><span class="nt">(kind, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">202</span>     <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">203</span>         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Could not find the plugin &quot;</span><span class="si">{</span><span class="n">plugin</span><span class="si">}</span><span class="s1">&quot; for </span><span class="si">{</span><span class="n">kind</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">205</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/data/_fetchers.py:334,</span> in <span class="ni">_load</span><span class="nt">(f, as_gray)</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span> <span class="c1"># importing io is quite slow since it scans all the backends</span>
+<span class="g g-Whitespace">    </span><span class="mi">332</span> <span class="c1"># we lazy import it here</span>
+<span class="g g-Whitespace">    </span><span class="mi">333</span> <span class="kn">from</span> <span class="nn">..io</span> <span class="kn">import</span> <span class="n">imread</span>
+<span class="ne">--&gt; </span><span class="mi">334</span> <span class="k">return</span> <span class="n">imread</span><span class="p">(</span><span class="n">_fetch</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">as_gray</span><span class="o">=</span><span class="n">as_gray</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/io/_plugins/imageio_plugin.py:11,</span> in <span class="ni">imread</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">imageio_imread</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="k">def</span> <span class="nf">imread</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">11</span>     <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">imageio_imread</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">out</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="s1">&#39;WRITEABLE&#39;</span><span class="p">]:</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>         <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/skimage/data/_fetchers.py:217,</span> in <span class="ni">_fetch</span><span class="nt">(data_filename)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span> <span class="k">if</span> <span class="n">_image_fetcher</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">_skip_pytest_case_requiring_pooch</span><span class="p">(</span><span class="n">data_filename</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">217</span>     <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span>         <span class="s2">&quot;The requested file is part of the scikit-image distribution, &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>         <span class="s2">&quot;but requires the installation of an optional dependency, pooch. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>         <span class="s2">&quot;To install pooch, use your preferred python package manager. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">221</span>         <span class="s2">&quot;Follow installation instruction found at &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">222</span>         <span class="s2">&quot;https://scikit-image.org/docs/stable/install.html&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">223</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">224</span> <span class="c1"># Download the data with pooch which caches it automatically</span>
+<span class="g g-Whitespace">    </span><span class="mi">225</span> <span class="n">_ensure_cache_dir</span><span class="p">(</span><span class="n">target_dir</span><span class="o">=</span><span class="n">cache_dir</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/imageio/v3.py:53,</span> in <span class="ni">imread</span><span class="nt">(uri, index, plugin, extension, format_hint, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="k">if</span> <span class="n">index</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="n">call_kwargs</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
-<span class="ne">---&gt; </span><span class="mi">53</span> <span class="k">with</span> <span class="n">imopen</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">plugin_kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">img_file</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">img_file</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="o">**</span><span class="n">call_kwargs</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/imageio/core/imopen.py:113,</span> in <span class="ni">imopen</span><span class="nt">(uri, io_mode, plugin, extension, format_hint, legacy_mode, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span>     <span class="n">request</span><span class="o">.</span><span class="n">format_hint</span> <span class="o">=</span> <span class="n">format_hint</span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">113</span>     <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="n">io_mode</span><span class="p">,</span> <span class="n">format_hint</span><span class="o">=</span><span class="n">format_hint</span><span class="p">,</span> <span class="n">extension</span><span class="o">=</span><span class="n">extension</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">115</span> <span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;&lt;bytes&gt;&quot;</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uri</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span> <span class="k">else</span> <span class="n">uri</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="c1"># fast-path based on plugin</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="c1"># (except in legacy mode)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/imageio/core/request.py:247,</span> in <span class="ni">Request.__init__</span><span class="nt">(self, uri, mode, extension, format_hint, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid Request.Mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span> <span class="c1"># Parse what was given</span>
-<span class="ne">--&gt; </span><span class="mi">247</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_uri</span><span class="p">(</span><span class="n">uri</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span> <span class="c1"># Set extension</span>
-<span class="g g-Whitespace">    </span><span class="mi">250</span> <span class="k">if</span> <span class="n">extension</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/imageio/core/request.py:382,</span> in <span class="ni">Request._parse_uri</span><span class="nt">(self, uri)</span>
-<span class="g g-Whitespace">    </span><span class="mi">380</span>         <span class="n">fn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename_zip</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">381</span>     <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">fn</span><span class="p">))</span> <span class="ow">and</span> <span class="p">(</span><span class="n">fn</span> <span class="ow">in</span> <span class="n">EXAMPLE_IMAGES</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">382</span>         <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">383</span>             <span class="s2">&quot;No such file: </span><span class="si">%r</span><span class="s2">. This file looks like one of &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">384</span>             <span class="s2">&quot;the standard images, but from imageio 2.1, &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">385</span>             <span class="s2">&quot;standard images have to be specified using &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">386</span>             <span class="s1">&#39;&quot;imageio:</span><span class="si">%s</span><span class="s1">&quot;.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">387</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">389</span> <span class="c1"># Make filename absolute</span>
-<span class="g g-Whitespace">    </span><span class="mi">390</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_uri_type</span> <span class="ow">in</span> <span class="p">[</span><span class="n">URI_FILENAME</span><span class="p">,</span> <span class="n">URI_ZIPPED</span><span class="p">]:</span>
-
-<span class="ne">OSError</span>: No such file: &#39;camera.png&#39;. This file looks like one of the standard images, but from imageio 2.1, standard images have to be specified using &quot;imageio:camera.png&quot;.
+<span class="ne">ModuleNotFoundError</span>: The requested file is part of the scikit-image distribution, but requires the installation of an optional dependency, pooch. To install pooch, use your preferred python package manager. Follow installation instruction found at https://scikit-image.org/docs/stable/install.html
 </pre></div>
 </div>
 </div>
 </div>
-<p>Let’s apply a Gaussian filter to blur the image. This is often used for noise reduction.</p>
+<p>Now, let’s display the original image to see what we’re working with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">blurred</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">blurred</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Original Image&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Blurred Image&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Next, let’s detect edges in the image using the Sobel filter.</p>
+<p>Let’s apply a Gaussian filter to smooth the image and reduce noise.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">sobel</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smoothed</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">gaussian</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">smoothed</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Smoothed Image&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we’ll apply edge detection using the Sobel filter.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">edges</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">sobel</span><span class="p">(</span><span class="n">smoothed</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Edge Detection&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally, let’s threshold the image to create a binary (black and white) version.</p>
+<p>Finally, let’s apply a threshold to create a binary image.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<span class="n">binary</span> <span class="o">=</span> <span class="n">image</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">threshold</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">threshold_otsu</span><span class="p">(</span><span class="n">smoothed</span><span class="p">)</span>
+<span class="n">binary</span> <span class="o">=</span> <span class="n">smoothed</span> <span class="o">&gt;</span> <span class="n">threshold</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">binary</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Binary Image&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>This concludes our basic introduction to image processing with scikit-image. We’ve covered loading images, applying filters, edge detection, and thresholding.</p>
+<p>This notebook has demonstrated some basic image processing techniques using scikit-image, including smoothing, edge detection, and thresholding.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -568,7 +553,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By AI-Generated
+By AI Generated
 </p>
 
   </div>

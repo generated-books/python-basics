@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Jupyter Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_mathematical_operations.html">Mathematical Operations in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_data_types_lists_tuples_dictionaries.html">Data Types: Lists, Tuples, Dictionaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_for_loops.html">For Loops in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_for_loops.html">For-loops in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_conditional_statements.html">Conditional Statements in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_custom_functions.html">Custom Functions in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
@@ -375,6 +375,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">What is a Jupyter Notebook?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cells">Code Cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-cells">Markdown Cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-mathematics">Basic Mathematics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">Importing Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
@@ -389,7 +393,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-jupyter-notebooks">
 <h1>Introduction to Jupyter Notebooks<a class="headerlink" href="#introduction-to-jupyter-notebooks" title="Permalink to this heading">#</a></h1>
-<p>This notebook will introduce you to the basics of Jupyter notebooks, an interactive environment for writing and running Python code.</p>
+<p>Jupyter notebooks are powerful tools for interactive computing, data analysis, and visualization. This notebook will introduce you to the basics of using Jupyter notebooks as part of our Python basics course.</p>
 <section id="what-is-a-jupyter-notebook">
 <h2>What is a Jupyter Notebook?<a class="headerlink" href="#what-is-a-jupyter-notebook" title="Permalink to this heading">#</a></h2>
 <p>A Jupyter notebook is an interactive document that can contain live code, equations, visualizations, and narrative text. It’s widely used in data science, scientific computing, and education.</p>
@@ -406,37 +410,60 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Jupyter notebooks allow you to mix markdown text with code. The next cell demonstrates a simple mathematical operation.</p>
+</section>
+<section id="code-cells">
+<h2>Code Cells<a class="headerlink" href="#code-cells" title="Permalink to this heading">#</a></h2>
+<p>Code cells are where you write and execute your Python code. Let’s create a simple variable and display it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;5 + 3 = </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Jupyter notebooks are awesome!&quot;</span>
+<span class="n">message</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 + 3 = 8
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Jupyter notebooks are awesome!&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<p>You can also create variables and use them in subsequent cells. Let’s create a variable and then use it.</p>
+<p>Notice how the last line of a code cell is automatically displayed without using <code class="docutils literal notranslate"><span class="pre">print()</span></code>.</p>
+</section>
+<section id="markdown-cells">
+<h2>Markdown Cells<a class="headerlink" href="#markdown-cells" title="Permalink to this heading">#</a></h2>
+<p>Markdown cells allow you to write formatted text, like this one. You can use them for explanations, notes, or to structure your notebook.</p>
+</section>
+<section id="basic-mathematics">
+<h2>Basic Mathematics<a class="headerlink" href="#basic-mathematics" title="Permalink to this heading">#</a></h2>
+<p>Jupyter notebooks are great for performing calculations. Let’s do a simple math operation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now, let’s use the variable we just created in a new cell.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">7</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;5 times 7 equals </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello, Python!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5 times 7 equals 35
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="importing-libraries">
+<h2>Importing Libraries<a class="headerlink" href="#importing-libraries" title="Permalink to this heading">#</a></h2>
+<p>You can easily import and use Python libraries in Jupyter notebooks. Let’s import a common library, NumPy, and use it for a simple calculation.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean of the array is: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean of the array is: 3.0
 </pre></div>
 </div>
 </div>
@@ -444,7 +471,7 @@ document.write(`
 </section>
 <section id="conclusion">
 <h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
-<p>This notebook has introduced you to the basics of Jupyter notebooks. You’ve seen how to create markdown cells for explanations and code cells for executing Python code. Jupyter notebooks are powerful tools for interactive coding and data analysis.</p>
+<p>This notebook has introduced you to the basics of Jupyter notebooks. You’ve seen how to use code cells, markdown cells, perform simple calculations, and import libraries. As you progress through the course, you’ll discover more advanced features and applications of Jupyter notebooks in Python programming and data analysis.</p>
 </section>
 </section>
 
@@ -512,6 +539,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-jupyter-notebook">What is a Jupyter Notebook?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cells">Code Cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-cells">Markdown Cells</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-mathematics">Basic Mathematics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">Importing Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
@@ -527,7 +558,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By AI-Generated
+By AI Generated
 </p>
 
   </div>

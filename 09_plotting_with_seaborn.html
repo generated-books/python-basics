@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_introduction_to_jupyter_notebooks.html">Introduction to Jupyter Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_mathematical_operations.html">Mathematical Operations in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_data_types_lists_tuples_dictionaries.html">Data Types: Lists, Tuples, Dictionaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_for_loops.html">For Loops in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_for_loops.html">For-loops in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_conditional_statements.html">Conditional Statements in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_custom_functions.html">Custom Functions in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
@@ -378,26 +378,41 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="plotting-with-seaborn">
 <h1>Plotting with Seaborn<a class="headerlink" href="#plotting-with-seaborn" title="Permalink to this heading">#</a></h1>
-<p>In this notebook, we’ll explore how to create beautiful and informative visualizations using the Seaborn library. Seaborn is built on top of Matplotlib and provides a high-level interface for drawing attractive statistical graphics.</p>
+<p>Seaborn is a powerful data visualization library built on top of Matplotlib. It provides a high-level interface for creating attractive and informative statistical graphics. In this notebook, we’ll explore some basic plotting techniques using Seaborn.</p>
 <p>First, let’s import the necessary libraries and set up our environment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Set the style for our plots</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x600 with 0 Axes&gt;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x600 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>Now, let’s load a sample dataset provided by Seaborn to work with.</p>
+<p>Now, let’s create some sample data to work with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the tips dataset</span>
-<span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
-<span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a sample dataset</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;category&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="mi">100</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -420,126 +435,112 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>total_bill</th>
-      <th>tip</th>
-      <th>sex</th>
-      <th>smoker</th>
-      <th>day</th>
-      <th>time</th>
-      <th>size</th>
+      <th>x</th>
+      <th>y</th>
+      <th>category</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>16.99</td>
-      <td>1.01</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>2</td>
+      <td>0.548814</td>
+      <td>0.677817</td>
+      <td>C</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>10.34</td>
-      <td>1.66</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
+      <td>0.715189</td>
+      <td>0.270008</td>
+      <td>C</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>21.01</td>
-      <td>3.50</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
+      <td>0.602763</td>
+      <td>0.735194</td>
+      <td>A</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>23.68</td>
-      <td>3.31</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>2</td>
+      <td>0.544883</td>
+      <td>0.962189</td>
+      <td>B</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>24.59</td>
-      <td>3.61</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>4</td>
+      <td>0.423655</td>
+      <td>0.248753</td>
+      <td>B</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Let’s create a simple scatter plot to visualize the relationship between total bill and tip.</p>
+<p>Let’s start with a simple scatter plot using Seaborn’s <code class="docutils literal notranslate"><span class="pre">scatterplot</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Relationship between Total Bill and Tip&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Simple Scatter Plot&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/df655b3b2cb1662118bddce2119a62d5b9270e2258a6929c5408a14082f1e583.png" src="_images/df655b3b2cb1662118bddce2119a62d5b9270e2258a6929c5408a14082f1e583.png" />
+<img alt="_images/8a618c86da000a0c8b977401c02fd50eb14271c437c318ff5d8ec070b0e01fb0.png" src="_images/8a618c86da000a0c8b977401c02fd50eb14271c437c318ff5d8ec070b0e01fb0.png" />
 </div>
 </div>
-<p>Now, let’s create a box plot to compare tips across different days of the week.</p>
+<p>Now, let’s create a scatter plot with different colors for each category.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Tips by Day of the Week&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatter Plot with Categories&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/510bdd390dc4150384a476c6d07e857fb2b7229160dc591affec3853f9556bf4.png" src="_images/510bdd390dc4150384a476c6d07e857fb2b7229160dc591affec3853f9556bf4.png" />
+<img alt="_images/8f17563f06a567d305aab2cd8ee390bb216990ce66fe9e331777456ffe4542b1.png" src="_images/8f17563f06a567d305aab2cd8ee390bb216990ce66fe9e331777456ffe4542b1.png" />
 </div>
 </div>
-<p>Let’s create a violin plot to visualize the distribution of total bill amounts for smokers and non-smokers.</p>
+<p>Seaborn also provides easy ways to visualize distributions. Let’s create a histogram.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;smoker&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Total Bill for Smokers and Non-Smokers&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Histogram with KDE&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5ffffecbf9828ba79449e6e4ab49dcca9fbf05a1c925d186b92795b958fb8902.png" src="_images/5ffffecbf9828ba79449e6e4ab49dcca9fbf05a1c925d186b92795b958fb8902.png" />
+<img alt="_images/2b22890e717dfcdee6d2e7b2512b29b2a1aaf8100457264de21866be9d5c73f2.png" src="_images/2b22890e717dfcdee6d2e7b2512b29b2a1aaf8100457264de21866be9d5c73f2.png" />
 </div>
 </div>
-<p>Finally, let’s create a pair plot to visualize relationships between multiple variables at once.</p>
+<p>We can also create box plots to compare distributions across categories.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Pair Plot of Tips Dataset&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Box Plot by Category&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/add4b39ee0c419b503a480d79f36a7c5dad8c58c62537092365e3024c1e30c04.png" src="_images/add4b39ee0c419b503a480d79f36a7c5dad8c58c62537092365e3024c1e30c04.png" />
+<img alt="_images/69249e1ebe8cd4ec6c22f32afe20662bfc95bf1618f07a15f6c725ddfde1c7e1.png" src="_images/69249e1ebe8cd4ec6c22f32afe20662bfc95bf1618f07a15f6c725ddfde1c7e1.png" />
 </div>
 </div>
-<p>This concludes our introduction to plotting with Seaborn. We’ve covered several types of plots and demonstrated how easy it is to create informative visualizations with just a few lines of code.</p>
+<p>Finally, let’s create a pair plot to visualize relationships between multiple variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Pair Plot&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/89bd67db8c2be4f167c16774387430b478c4f8ac93a166e536a6a8cb4f5547cf.png" src="_images/89bd67db8c2be4f167c16774387430b478c4f8ac93a166e536a6a8cb4f5547cf.png" />
+</div>
+</div>
+<p>This concludes our introduction to plotting with Seaborn. We’ve covered scatter plots, histograms, box plots, and pair plots, demonstrating how easy it is to create informative visualizations with just a few lines of code.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -606,7 +607,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By AI-Generated
+By AI Generated
 </p>
 
   </div>

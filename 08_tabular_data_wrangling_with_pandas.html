@@ -172,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="01_introduction_to_jupyter_notebooks.html">Introduction to Jupyter Notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_mathematical_operations.html">Mathematical Operations in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_data_types_lists_tuples_dictionaries.html">Data Types: Lists, Tuples, Dictionaries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_for_loops.html">For Loops in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_for_loops.html">For-loops in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_conditional_statements.html">Conditional Statements in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_custom_functions.html">Custom Functions in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_image_processing_with_scikit_image.html">Image Processing with scikit-image</a></li>
@@ -378,40 +378,34 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tabular-data-wrangling-with-pandas">
 <h1>Tabular Data Wrangling with Pandas<a class="headerlink" href="#tabular-data-wrangling-with-pandas" title="Permalink to this heading">#</a></h1>
-<p>This notebook introduces basic data wrangling techniques using the pandas library in Python. We’ll cover importing data, basic operations, and data manipulation.</p>
-<p>First, we need to import the pandas library. We’ll use the conventional alias ‘pd’ for pandas.</p>
+<p>This notebook introduces the basics of data manipulation using the pandas library in Python. Pandas is a powerful tool for working with structured data, particularly in tabular format.</p>
+<p>First, we’ll import the pandas library and create a simple DataFrame to work with.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Let’s create a simple DataFrame to work with. This DataFrame will contain information about fruits.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Fruit&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Banana&#39;</span><span class="p">,</span> <span class="s1">&#39;Cherry&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="s1">&#39;Elderberry&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Brown&#39;</span><span class="p">,</span> <span class="s1">&#39;Purple&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Price&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.40</span><span class="p">,</span> <span class="mf">0.80</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
+    <span class="s1">&#39;City&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;Los Angeles&#39;</span><span class="p">,</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">]</span>
 <span class="p">}</span>
+
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Fruit   Color  Price
-0       Apple     Red   0.35
-1      Banana  Yellow   0.25
-2      Cherry     Red   0.50
-3        Date   Brown   0.40
-4  Elderberry  Purple   0.80
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City
+0    Alice   25       New York
+1      Bob   30  San Francisco
+2  Charlie   35    Los Angeles
+3    David   28        Chicago
 </pre></div>
 </div>
 </div>
 </div>
-<p>To get an overview of the DataFrame, we can use the <code class="docutils literal notranslate"><span class="pre">info()</span></code> method. This provides information about the columns, data types, and non-null values.</p>
+<p>Let’s examine the structure of our DataFrame using the <code class="docutils literal notranslate"><span class="pre">info()</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -420,111 +414,103 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 5 entries, 0 to 4
+RangeIndex: 4 entries, 0 to 3
 Data columns (total 3 columns):
- #   Column  Non-Null Count  Dtype  
----  ------  --------------  -----  
- 0   Fruit   5 non-null      object 
- 1   Color   5 non-null      object 
- 2   Price   5 non-null      float64
-dtypes: float64(1), object(2)
-memory usage: 248.0+ bytes
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   Name    4 non-null      object
+ 1   Age     4 non-null      int64 
+ 2   City    4 non-null      object
+dtypes: int64(1), object(2)
+memory usage: 224.0+ bytes
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can select specific columns from the DataFrame. Let’s select the ‘Fruit’ and ‘Price’ columns.</p>
+<p>Now, we’ll demonstrate how to select a single column from the DataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Fruit&#39;</span><span class="p">,</span> <span class="s1">&#39;Price&#39;</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ages</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Fruit  Price
-0       Apple   0.35
-1      Banana   0.25
-2      Cherry   0.50
-3        Date   0.40
-4  Elderberry   0.80
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    25
+1    30
+2    35
+3    28
+Name: Age, dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
-<p>To filter rows based on a condition, we can use boolean indexing. Let’s find all fruits that are red.</p>
+<p>We can also filter rows based on a condition. Let’s select all individuals older than 30.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">red_fruits</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Color&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Red&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">red_fruits</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">older_than_30</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">older_than_30</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Fruit Color  Price
-0   Apple   Red   0.35
-2  Cherry   Red   0.50
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age         City
+2  Charlie   35  Los Angeles
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can add a new column to our DataFrame. Let’s add a ‘Stock’ column with some random values.</p>
+<p>Adding a new column to the DataFrame is straightforward. Let’s add a ‘Profession’ column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stock&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Profession&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Engineer&#39;</span><span class="p">,</span> <span class="s1">&#39;Teacher&#39;</span><span class="p">,</span> <span class="s1">&#39;Doctor&#39;</span><span class="p">,</span> <span class="s1">&#39;Artist&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Fruit   Color  Price  Stock
-0       Apple     Red   0.35     72
-1      Banana  Yellow   0.25     78
-2      Cherry     Red   0.50     50
-3        Date   Brown   0.40     95
-4  Elderberry  Purple   0.80     84
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City Profession
+0    Alice   25       New York   Engineer
+1      Bob   30  San Francisco    Teacher
+2  Charlie   35    Los Angeles     Doctor
+3    David   28        Chicago     Artist
 </pre></div>
 </div>
 </div>
 </div>
-<p>To perform calculations on columns, we can use simple arithmetic operations. Let’s calculate the total value of each fruit’s stock.</p>
+<p>We can perform basic calculations on numerical columns. Let’s calculate the average age.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Total Value&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Stock&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">average_age</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The average age is: </span><span class="si">{</span><span class="n">average_age</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Fruit   Color  Price  Stock  Total Value
-0       Apple     Red   0.35     72         25.2
-1      Banana  Yellow   0.25     78         19.5
-2      Cherry     Red   0.50     50         25.0
-3        Date   Brown   0.40     95         38.0
-4  Elderberry  Purple   0.80     84         67.2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The average age is: 29.50
 </pre></div>
 </div>
 </div>
 </div>
-<p>Finally, let’s sort the DataFrame based on the ‘Total Value’ column in descending order.</p>
+<p>Finally, let’s demonstrate how to sort the DataFrame based on a column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_sorted</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Total Value&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_sorted</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        Fruit   Color  Price  Stock  Total Value
-4  Elderberry  Purple   0.80     84         67.2
-3        Date   Brown   0.40     95         38.0
-0       Apple     Red   0.35     72         25.2
-2      Cherry     Red   0.50     50         25.0
-1      Banana  Yellow   0.25     78         19.5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City Profession
+2  Charlie   35    Los Angeles     Doctor
+1      Bob   30  San Francisco    Teacher
+3    David   28        Chicago     Artist
+0    Alice   25       New York   Engineer
 </pre></div>
 </div>
 </div>
 </div>
+<p>This concludes our introduction to tabular data wrangling with pandas. We’ve covered creating DataFrames, selecting columns, filtering rows, adding columns, performing calculations, and sorting data.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -591,7 +577,7 @@ memory usage: 248.0+ bytes
   <div class="footer-item">
     
 <p class="component-author">
-By AI-Generated
+By AI Generated
 </p>
 
   </div>
