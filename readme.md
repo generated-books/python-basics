@@ -1,10 +1,10 @@
-# Python Basics - AI-Generated Jupyter Book
+# Python Basics and Data Science Fundamentals
 
-This repository contains an AI-generated Jupyter Book on Python Basics. The book covers fundamental Python concepts and progresses to more advanced topics in data analysis and machine learning.
+This repository contains an AI-generated Jupyter Book on Python basics and data science fundamentals. The book covers a range of topics from introductory Python programming to more advanced concepts in data analysis and machine learning.
 
-## About
+## AI-Generated Content
 
-This entire book, including all notebooks and supporting files, is generated using artificial intelligence. The process and code used for generating this book can be found in the [`generator.ipynb`](generator.ipynb) file in this repository.
+The entire content of this book, including all Jupyter notebooks, has been generated using AI. The process of generation and the code used to create this book can be found in the [`generator.ipynb`](generator.ipynb) file in this repository.
 
 ## Building the Book
 
@@ -23,19 +23,19 @@ To build the book locally, follow these steps:
 
 3. Build the book:
    ```
-   jupyter-book build docs
+   jupyter-book build docs/
    ```
 
 4. The built book will be in the `docs/_build/html/` directory. You can open the `index.html` file in your web browser to view the book.
 
 ## Online Version
 
-You can also view the online version of this book at: https://generated-books.github.io/python-basics
+The online version of this book is available at: https://generated-books.github.io/python-basics
 
 ## Contributing
 
-As this is an AI-generated book, we do not accept direct contributions. However, if you notice any issues or have suggestions for improvements, please open an issue in this repository.
+As this is an AI-generated book, we do not accept direct contributions to the content. However, if you notice any issues or have suggestions for improvements, please open an issue in this repository.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This book is released under the [MIT License](LICENSE).

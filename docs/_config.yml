@@ -1,33 +1,30 @@
 # Book settings
-title: Python Basics
-author: AI-generated
+title: Python Basics and Data Science Fundamentals
+author: AI-Generated
 logo: ../icon.png
 copyright: "2024"
-only_build_toc_files: true
-
-# Execution settings
 execute:
   execute_notebooks: force
 
-# HTML-specific settings
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/generated-books/python-basics
+  path_to_book: docs
+
+# Add GitHub buttons to your book
 html:
   use_issues_button: true
   use_repository_button: true
 
+# LaTeX settings
+latex:
+  latex_documents:
+    targetname: book.tex
+
 # Launch button settings
-repository:
-  url: https://github.com/generated-books/python-basics
-  branch: main
+launch_buttons:
+  notebook_interface: jupyterlab
+  binderhub_url: ""
 
-# Advanced and power-user settings
-sphinx:
-  config:
-    html_last_updated_fmt: "%B %d, %Y"
-
-parse:
-  myst_enable_extensions:
-    - colon_fence
-    - dollarmath
-    - linkify
-    - substitution
-    - tasklist
+# Date of last update
+last_updated: "June 23, 2024"

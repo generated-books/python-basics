@@ -5,6 +5,3 @@ pandas
 seaborn
 matplotlib
 scikit-learn
-ipython
-jupyter
-notebook
