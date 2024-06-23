@@ -1,10 +1,10 @@
-# Python Basics and Data Science Fundamentals
+# Python Basics: An AI-Generated Jupyter Book
 
-This repository contains an AI-generated Jupyter Book on Python basics and data science fundamentals. The book covers a range of topics from introductory Python programming to more advanced concepts in data analysis and machine learning.
+This repository contains an AI-generated Jupyter Book on Python basics. The book covers fundamental Python concepts and progresses to more advanced topics in data analysis and machine learning.
 
-## AI-Generated Content
+## About This Book
 
-The entire content of this book, including all Jupyter notebooks, has been generated using AI. The process of generation and the code used to create this book can be found in the [`generator.ipynb`](generator.ipynb) file in this repository.
+This entire book, including all notebooks and content, is AI-generated. The process of creation and the code used to generate this book can be found in the [`generator.ipynb`](generator.ipynb) file in this repository.
 
 ## Building the Book
 
@@ -16,26 +16,32 @@ To build the book locally, follow these steps:
    cd python-basics
    ```
 
-2. Install the required dependencies:
+2. Create a virtual environment (optional but recommended):
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+3. Install the required dependencies:
    ```
    pip install -r docs/requirements.txt
    ```
 
-3. Build the book:
+4. Build the book:
    ```
    jupyter-book build docs/
    ```
 
-4. The built book will be in the `docs/_build/html/` directory. You can open the `index.html` file in your web browser to view the book.
+5. The built book will be in the `docs/_build/html/` directory. You can open the `index.html` file in your web browser to view the book.
 
-## Online Version
+## Viewing the Book Online
 
-The online version of this book is available at: https://generated-books.github.io/python-basics
+This book is also hosted online using GitHub Pages. You can view it at: https://generated-books.github.io/python-basics/
 
 ## Contributing
 
-As this is an AI-generated book, we do not accept direct contributions to the content. However, if you notice any issues or have suggestions for improvements, please open an issue in this repository.
+As this is an AI-generated book, we are not currently accepting direct contributions. However, if you notice any issues or have suggestions for improvements, please feel free to open an issue in this repository.
 
 ## License
 
-This book is released under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

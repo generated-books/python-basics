@@ -1,10 +1,22 @@
 # Book settings
-title: Python Basics and Data Science Fundamentals
+title: Python Basics
 author: AI-Generated
-logo: ../icon.png
 copyright: "2024"
+logo: ../icon.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
 
 # Information about where the book exists on the web
 repository:
@@ -12,14 +24,10 @@ repository:
   path_to_book: docs
 
 # Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: true
   use_repository_button: true
-
-# LaTeX settings
-latex:
-  latex_documents:
-    targetname: book.tex
 
 # Launch button settings
 launch_buttons:
