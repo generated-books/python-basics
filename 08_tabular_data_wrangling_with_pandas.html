@@ -1,67 +1,62 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Tabular Data Wrangling with Pandas &#8212; Python Basics</title>
+    <title>Tabular Data Wrangling with Pandas &#8212; Python Basics and Data Science Fundamentals</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '08_tabular_data_wrangling_with_pandas';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -69,7 +64,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Image Processing with scikit-image" href="07_image_processing_with_scikit_image.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="June 23, 2024"/>
   </head>
   
   
@@ -77,28 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -120,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -154,12 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/icon.png" class="logo__image only-light" alt="Python Basics - Home"/>
-    <script>document.write(`<img src="_static/icon.png" class="logo__image only-dark" alt="Python Basics - Home"/>`);</script>
+    <img src="_static/icon.png" class="logo__image only-light" alt="Python Basics and Data Science Fundamentals - Home"/>
+    <script>document.write(`<img src="_static/icon.png" class="logo__image only-dark" alt="Python Basics and Data Science Fundamentals - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -195,7 +203,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -204,14 +212,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -352,9 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -375,13 +383,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas-and-creating-a-dataframe">1. Importing pandas and creating a DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas-and-loading-data">1. Importing pandas and loading data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-dataframe-operations">2. Basic DataFrame operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-and-filtering-data">3. Selecting and filtering data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-modifying-data">4. Adding and modifying data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-data">5. Handling missing data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-aggregating-data">6. Grouping and aggregating data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-dataframes">7. Merging DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-modifying-columns">4. Adding and modifying columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-aggregating-data">5. Grouping and aggregating data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-data">6. Handling missing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-and-concatenating-dataframes">7. Merging and concatenating DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-data">8. Reshaping data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
@@ -392,42 +401,37 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tabular-data-wrangling-with-pandas">
-<h1>Tabular Data Wrangling with Pandas<a class="headerlink" href="#tabular-data-wrangling-with-pandas" title="Permalink to this heading">#</a></h1>
-<p>In this notebook, we’ll explore how to manipulate and analyze tabular data using the powerful pandas library in Python. Pandas is an essential tool for data scientists and analysts working with structured data.</p>
-<section id="importing-pandas-and-creating-a-dataframe">
-<h2>1. Importing pandas and creating a DataFrame<a class="headerlink" href="#importing-pandas-and-creating-a-dataframe" title="Permalink to this heading">#</a></h2>
+<h1>Tabular Data Wrangling with Pandas<a class="headerlink" href="#tabular-data-wrangling-with-pandas" title="Link to this heading">#</a></h1>
+<p>In this notebook, we’ll explore how to manipulate and analyze tabular data using the powerful pandas library in Python.</p>
+<section id="importing-pandas-and-loading-data">
+<h2>1. Importing pandas and loading data<a class="headerlink" href="#importing-pandas-and-loading-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="c1"># Create a sample DataFrame</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;David&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
-    <span class="s1">&#39;City&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;New York&#39;</span><span class="p">,</span> <span class="s1">&#39;San Francisco&#39;</span><span class="p">,</span> <span class="s1">&#39;Los Angeles&#39;</span><span class="p">,</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="c1"># Load a sample dataset</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/mwaskom/seaborn-data/master/tips.csv&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City
-0    Alice   25       New York
-1      Bob   30  San Francisco
-2  Charlie   35    Los Angeles
-3    David   28        Chicago
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   total_bill   tip     sex smoker  day    time  size
+0       16.99  1.01  Female     No  Sun  Dinner     2
+1       10.34  1.66    Male     No  Sun  Dinner     3
+2       21.01  3.50    Male     No  Sun  Dinner     3
+3       23.68  3.31    Male     No  Sun  Dinner     2
+4       24.59  3.61  Female     No  Sun  Dinner     4
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="basic-dataframe-operations">
-<h2>2. Basic DataFrame operations<a class="headerlink" href="#basic-dataframe-operations" title="Permalink to this heading">#</a></h2>
+<h2>2. Basic DataFrame operations<a class="headerlink" href="#basic-dataframe-operations" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display basic information about the DataFrame</span>
@@ -437,15 +441,19 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 4 entries, 0 to 3
-Data columns (total 3 columns):
- #   Column  Non-Null Count  Dtype 
----  ------  --------------  ----- 
- 0   Name    4 non-null      object
- 1   Age     4 non-null      int64 
- 2   City    4 non-null      object
-dtypes: int64(1), object(2)
-memory usage: 224.0+ bytes
+RangeIndex: 244 entries, 0 to 243
+Data columns (total 7 columns):
+ #   Column      Non-Null Count  Dtype  
+---  ------      --------------  -----  
+ 0   total_bill  244 non-null    float64
+ 1   tip         244 non-null    float64
+ 2   sex         244 non-null    object 
+ 3   smoker      244 non-null    object 
+ 4   day         244 non-null    object 
+ 5   time        244 non-null    object 
+ 6   size        244 non-null    int64  
+dtypes: float64(2), int64(1), object(4)
+memory usage: 13.5+ KB
 None
 </pre></div>
 </div>
@@ -453,41 +461,50 @@ None
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display summary statistics</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get summary statistics</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>             Age
-count   4.000000
-mean   29.500000
-std     4.203173
-min    25.000000
-25%    27.250000
-50%    29.000000
-75%    31.250000
-max    35.000000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       total_bill         tip        size
+count  244.000000  244.000000  244.000000
+mean    19.785943    2.998279    2.569672
+std      8.902412    1.383638    0.951100
+min      3.070000    1.000000    1.000000
+25%     13.347500    2.000000    2.000000
+50%     17.795000    2.900000    2.000000
+75%     24.127500    3.562500    3.000000
+max     50.810000   10.000000    6.000000
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="selecting-and-filtering-data">
-<h2>3. Selecting and filtering data<a class="headerlink" href="#selecting-and-filtering-data" title="Permalink to this heading">#</a></h2>
+<h2>3. Selecting and filtering data<a class="headerlink" href="#selecting-and-filtering-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select a single column</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select specific columns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="s1">&#39;tip&#39;</span><span class="p">]])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      Alice
-1        Bob
-2    Charlie
-3      David
-Name: Name, dtype: object
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     total_bill   tip
+0         16.99  1.01
+1         10.34  1.66
+2         21.01  3.50
+3         23.68  3.31
+4         24.59  3.61
+..          ...   ...
+239       29.03  5.92
+240       27.18  2.00
+241       22.67  2.00
+242       17.82  1.75
+243       18.78  3.00
+
+[244 rows x 2 columns]
 </pre></div>
 </div>
 </div>
@@ -495,89 +512,137 @@ Name: Name, dtype: object
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows based on a condition</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">])</span>
+<span class="n">high_tips</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">high_tips</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age         City
-2  Charlie   35  Los Angeles
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     total_bill    tip     sex smoker   day    time  size
+23        39.42   7.58    Male     No   Sat  Dinner     4
+44        30.40   5.60    Male     No   Sun  Dinner     4
+47        32.40   6.00    Male     No   Sun  Dinner     4
+52        34.81   5.20  Female     No   Sun  Dinner     4
+59        48.27   6.73    Male     No   Sat  Dinner     4
+85        34.83   5.17  Female     No  Thur   Lunch     4
+88        24.71   5.85    Male     No  Thur   Lunch     2
+116       29.93   5.07    Male     No   Sun  Dinner     4
+141       34.30   6.70    Male     No  Thur   Lunch     6
+155       29.85   5.14  Female     No   Sun  Dinner     5
+170       50.81  10.00    Male    Yes   Sat  Dinner     3
+172        7.25   5.15    Male    Yes   Sun  Dinner     2
+181       23.33   5.65    Male    Yes   Sun  Dinner     2
+183       23.17   6.50    Male    Yes   Sun  Dinner     4
+211       25.89   5.16    Male    Yes   Sat  Dinner     4
+212       48.33   9.00    Male     No   Sat  Dinner     4
+214       28.17   6.50  Female    Yes   Sat  Dinner     3
+239       29.03   5.92    Male     No   Sat  Dinner     3
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="adding-and-modifying-data">
-<h2>4. Adding and modifying data<a class="headerlink" href="#adding-and-modifying-data" title="Permalink to this heading">#</a></h2>
+<section id="adding-and-modifying-columns">
+<h2>4. Adding and modifying columns<a class="headerlink" href="#adding-and-modifying-columns" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Add a new column</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Country&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">,</span> <span class="s1">&#39;USA&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;tip_percentage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City Country
-0    Alice   25       New York     USA
-1      Bob   30  San Francisco     USA
-2  Charlie   35    Los Angeles     USA
-3    David   28        Chicago     USA
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   total_bill   tip     sex smoker  day    time  size  tip_percentage
+0       16.99  1.01  Female     No  Sun  Dinner     2        5.944673
+1       10.34  1.66    Male     No  Sun  Dinner     3       16.054159
+2       21.01  3.50    Male     No  Sun  Dinner     3       16.658734
+3       23.68  3.31    Male     No  Sun  Dinner     2       13.978041
+4       24.59  3.61  Female     No  Sun  Dinner     4       14.680765
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modify existing data</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">26</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Modify an existing column</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age           City Country
-0    Alice   26       New York     USA
-1      Bob   30  San Francisco     USA
-2  Charlie   35    Los Angeles     USA
-3    David   28        Chicago     USA
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Sun&#39; &#39;Sat&#39; &#39;Thur&#39; &#39;Fri&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="grouping-and-aggregating-data">
+<h2>5. Grouping and aggregating data<a class="headerlink" href="#grouping-and-aggregating-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by day and calculate mean tip</span>
+<span class="n">daily_tips</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">)[</span><span class="s1">&#39;tip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daily_tips</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>day
+Fri     2.734737
+Sat     2.993103
+Sun     3.255132
+Thur    2.771452
+Name: tip, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiple aggregations</span>
+<span class="n">summary</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;day&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+    <span class="s1">&#39;total_bill&#39;</span><span class="p">:</span> <span class="s1">&#39;mean&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tip&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     total_bill       tip        size
+           mean      mean    max  sum
+day                                  
+Fri   17.151579  2.734737   4.73   40
+Sat   20.441379  2.993103  10.00  219
+Sun   21.410000  3.255132   6.50  216
+Thur  17.682742  2.771452   6.70  152
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="handling-missing-data">
-<h2>5. Handling missing data<a class="headerlink" href="#handling-missing-data" title="Permalink to this heading">#</a></h2>
+<h2>6. Handling missing data<a class="headerlink" href="#handling-missing-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Introduce some missing data</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;City&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age         City Country
-0    Alice   26     New York     USA
-1      Bob   30         None     USA
-2  Charlie   35  Los Angeles     USA
-3    David   28      Chicago     USA
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check for missing values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Introduce some missing values</span>
+<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;total_bill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Name       0
-Age        0
-City       1
-Country    0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total_bill        5
+tip               0
+sex               0
+smoker            0
+day               0
+time              0
+size              0
+tip_percentage    0
 dtype: int64
 </pre></div>
 </div>
@@ -585,71 +650,76 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with missing values</span>
-<span class="n">df_cleaned</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_cleaned</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fill missing values</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age         City Country
-0    Alice   26     New York     USA
-2  Charlie   35  Los Angeles     USA
-3    David   28      Chicago     USA
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total_bill        0
+tip               0
+sex               0
+smoker            0
+day               0
+time              0
+size              0
+tip_percentage    0
+dtype: int64
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="grouping-and-aggregating-data">
-<h2>6. Grouping and aggregating data<a class="headerlink" href="#grouping-and-aggregating-data" title="Permalink to this heading">#</a></h2>
+<section id="merging-and-concatenating-dataframes">
+<h2>7. Merging and concatenating DataFrames<a class="headerlink" href="#merging-and-concatenating-dataframes" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by Country and calculate mean Age</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Country&#39;</span><span class="p">)[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Country
-USA    29.75
-Name: Age, dtype: float64
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="merging-dataframes">
-<h2>7. Merging DataFrames<a class="headerlink" href="#merging-dataframes" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new DataFrame</span>
-<span class="n">data2</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Eve&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">55000</span><span class="p">]</span>
-<span class="p">}</span>
-<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create two sample DataFrames</span>
+<span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">]})</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">],</span> <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">]})</span>
 
-<span class="c1"># Merge the two DataFrames</span>
-<span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="p">)</span>
+<span class="c1"># Concatenate vertically</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Name  Age         City Country   Salary
-0    Alice   26     New York     USA  50000.0
-1      Bob   30         None     USA  60000.0
-2  Charlie   35  Los Angeles     USA      NaN
-3    David   28      Chicago     USA      NaN
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    A   B   C   D
+0  A0  B0  C0  D0
+1  A1  B1  C1  D1
+2  A2  B2  C2  D2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reshaping-data">
+<h2>8. Reshaping data<a class="headerlink" href="#reshaping-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pivot table</span>
+<span class="n">pivot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pivot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>time    Dinner     Lunch
+day                     
+Fri   2.940000  2.382857
+Sat   2.993103       NaN
+Sun   3.255132       NaN
+Thur  3.000000  2.767705
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
-<p>This notebook has introduced you to some of the fundamental operations for tabular data wrangling using pandas. These skills form the foundation for more advanced data analysis and manipulation tasks in Python.</p>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>This notebook has introduced you to some of the key operations for tabular data wrangling using pandas. Practice these operations to become proficient in data manipulation with Python!</p>
 </section>
 </section>
 
@@ -680,7 +750,7 @@ Name: Age, dtype: float64
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -710,19 +780,21 @@ Name: Age, dtype: float64
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas-and-creating-a-dataframe">1. Importing pandas and creating a DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas-and-loading-data">1. Importing pandas and loading data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-dataframe-operations">2. Basic DataFrame operations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-and-filtering-data">3. Selecting and filtering data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-modifying-data">4. Adding and modifying data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-data">5. Handling missing data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-aggregating-data">6. Grouping and aggregating data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-dataframes">7. Merging DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-modifying-columns">4. Adding and modifying columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grouping-and-aggregating-data">5. Grouping and aggregating data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-data">6. Handling missing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merging-and-concatenating-dataframes">7. Merging and concatenating DataFrames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reshaping-data">8. Reshaping data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
@@ -738,7 +810,7 @@ Name: Age, dtype: float64
   <div class="footer-item">
     
 <p class="component-author">
-By AI-generated
+By AI-Generated
 </p>
 
   </div>
@@ -756,10 +828,7 @@ By AI-generated
   </div>
   
   <div class="footer-item">
-    <p class="last-updated">
-  Last updated on June 23, 2024.
-  <br/>
-</p>
+    
   </div>
   
   <div class="footer-item">
@@ -775,8 +844,8 @@ By AI-generated
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

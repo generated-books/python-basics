@@ -1,67 +1,62 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>For-loops in Python &#8212; Python Basics</title>
+    <title>For-loops in Python &#8212; Python Basics and Data Science Fundamentals</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '04_for_loops';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -69,7 +64,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Data Types: Lists, Tuples, Dictionaries" href="03_data_types_lists_tuples_dictionaries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="June 23, 2024"/>
   </head>
   
   
@@ -77,28 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -120,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -154,12 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/icon.png" class="logo__image only-light" alt="Python Basics - Home"/>
-    <script>document.write(`<img src="_static/icon.png" class="logo__image only-dark" alt="Python Basics - Home"/>`);</script>
+    <img src="_static/icon.png" class="logo__image only-light" alt="Python Basics and Data Science Fundamentals - Home"/>
+    <script>document.write(`<img src="_static/icon.png" class="logo__image only-dark" alt="Python Basics and Data Science Fundamentals - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -195,7 +203,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -204,14 +212,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -352,9 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -375,10 +383,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-for-loop-syntax">Basic For-loop Syntax</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-range-in-for-loops">Using range() in For-loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-syntax">Basic Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-range">Using range()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-for-loops">Nested For-loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-with-enumerate">Looping with Enumerate()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-control-statements">Loop Control Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
@@ -389,16 +397,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="for-loops-in-python">
-<h1>For-loops in Python<a class="headerlink" href="#for-loops-in-python" title="Permalink to this heading">#</a></h1>
-<p>For-loops are a fundamental concept in Python programming. They allow you to iterate over a sequence of elements and perform actions for each item. In this notebook, we’ll explore the basics of for-loops and their common use cases.</p>
-<section id="basic-for-loop-syntax">
-<h2>Basic For-loop Syntax<a class="headerlink" href="#basic-for-loop-syntax" title="Permalink to this heading">#</a></h2>
-<p>The basic syntax of a for-loop in Python is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
-    <span class="c1"># Code to be executed for each item</span>
+<h1>For-loops in Python<a class="headerlink" href="#for-loops-in-python" title="Link to this heading">#</a></h1>
+<p>For-loops are a fundamental construct in Python that allow you to iterate over a sequence of elements. They are incredibly useful for performing repetitive tasks efficiently.</p>
+<section id="basic-syntax">
+<h2>Basic Syntax<a class="headerlink" href="#basic-syntax" title="Link to this heading">#</a></h2>
+<p>The basic syntax of a for-loop in Python is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+    <span class="c1"># code to be executed</span>
 </pre></div>
 </div>
 <p>Let’s start with a simple example:</p>
@@ -418,10 +426,10 @@ cherry
 </div>
 </div>
 </div>
-<p>In this example, we iterate over a list of fruits and print each fruit.</p>
+<p>In this example, we iterate over a list of fruits and print each one.</p>
 </section>
-<section id="using-range-in-for-loops">
-<h2>Using range() in For-loops<a class="headerlink" href="#using-range-in-for-loops" title="Permalink to this heading">#</a></h2>
+<section id="using-range">
+<h2>Using range()<a class="headerlink" href="#using-range" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">range()</span></code> function is often used with for-loops to iterate a specific number of times:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -440,16 +448,16 @@ cherry
 </div>
 </div>
 </div>
-<p>This loop will print numbers from 0 to 4.</p>
+<p>This will print numbers from 0 to 4.</p>
 </section>
 <section id="nested-for-loops">
-<h2>Nested For-loops<a class="headerlink" href="#nested-for-loops" title="Permalink to this heading">#</a></h2>
-<p>You can nest for-loops inside each other for more complex iterations:</p>
+<h2>Nested For-loops<a class="headerlink" href="#nested-for-loops" title="Link to this heading">#</a></h2>
+<p>You can nest for-loops inside each other:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;(</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -464,32 +472,58 @@ cherry
 </div>
 </div>
 </div>
-<p>This nested loop will print all combinations of (i, j) where i ranges from 0 to 2 and j ranges from 0 to 1.</p>
+<p>This will print all combinations of (i, j) where i is 0, 1, 2 and j is 0, 1.</p>
 </section>
-<section id="looping-with-enumerate">
-<h2>Looping with Enumerate()<a class="headerlink" href="#looping-with-enumerate" title="Permalink to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">enumerate()</span></code> function is useful when you need both the index and the value in a loop:</p>
+<section id="loop-control-statements">
+<h2>Loop Control Statements<a class="headerlink" href="#loop-control-statements" title="Link to this heading">#</a></h2>
+<p>Python provides two loop control statements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span></code>: exits the loop prematurely</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code>: skips the rest of the current iteration</p></li>
+</ul>
+<p>Let’s see an example of <code class="docutils literal notranslate"><span class="pre">break</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">,</span> <span class="s1">&#39;cherry&#39;</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">fruits</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">fruit</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index 0: apple
-Index 1: banana
-Index 2: cherry
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
 </pre></div>
 </div>
 </div>
 </div>
-<p>This loop prints both the index and the value of each item in the list.</p>
+<p>This will print 0, 1, 2 and then exit the loop.</p>
+<p>Now, let’s see an example of <code class="docutils literal notranslate"><span class="pre">continue</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will print 0, 1, 3, 4, skipping 2.</p>
 </section>
 <section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
-<p>For-loops are a powerful tool in Python for iterating over sequences and performing repeated actions. They are essential for many programming tasks and form the basis for more advanced looping concepts.</p>
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>For-loops are a powerful tool in Python for iterating over sequences and performing repetitive tasks. They can be used with various types of sequences and can be controlled using <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements. Practice using for-loops in different scenarios to become more comfortable with them.</p>
 </section>
 </section>
 
@@ -520,7 +554,7 @@ Index 2: cherry
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -550,16 +584,17 @@ Index 2: cherry
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-for-loop-syntax">Basic For-loop Syntax</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-range-in-for-loops">Using range() in For-loops</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-syntax">Basic Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-range">Using range()</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-for-loops">Nested For-loops</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#looping-with-enumerate">Looping with Enumerate()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loop-control-statements">Loop Control Statements</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
@@ -575,7 +610,7 @@ Index 2: cherry
   <div class="footer-item">
     
 <p class="component-author">
-By AI-generated
+By AI-Generated
 </p>
 
   </div>
@@ -593,10 +628,7 @@ By AI-generated
   </div>
   
   <div class="footer-item">
-    <p class="last-updated">
-  Last updated on June 23, 2024.
-  <br/>
-</p>
+    
   </div>
   
   <div class="footer-item">
@@ -612,8 +644,8 @@ By AI-generated
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

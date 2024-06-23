@@ -1,67 +1,62 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Plotting with Seaborn &#8212; Python Basics</title>
+    <title>Plotting with Seaborn &#8212; Python Basics and Data Science Fundamentals</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '09_plotting_with_seaborn';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -69,7 +64,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Tabular Data Wrangling with Pandas" href="08_tabular_data_wrangling_with_pandas.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="June 23, 2024"/>
   </head>
   
   
@@ -77,28 +71,23 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -120,12 +109,20 @@ const thebe_selector_output = ".output, .cell_output"
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -154,12 +151,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/icon.png" class="logo__image only-light" alt="Python Basics - Home"/>
-    <script>document.write(`<img src="_static/icon.png" class="logo__image only-dark" alt="Python Basics - Home"/>`);</script>
+    <img src="_static/icon.png" class="logo__image only-light" alt="Python Basics and Data Science Fundamentals - Home"/>
+    <script>document.write(`<img src="_static/icon.png" class="logo__image only-dark" alt="Python Basics and Data Science Fundamentals - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -195,7 +203,7 @@ const thebe_selector_output = ".output, .cell_output"
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -204,14 +212,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -352,9 +360,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -376,12 +384,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-dataset">Loading a Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-scatter-plot">Creating a Scatter Plot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-third-variable-with-color">Adding a Third Variable with Color</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-box-plot">Creating a Box Plot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-violin-plot">Creating a Violin Plot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-pair-plot">Creating a Pair Plot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">Scatter Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">Violin Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">Heatmap</a></li>
 </ul>
             </nav>
         </div>
@@ -391,11 +397,11 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="plotting-with-seaborn">
-<h1>Plotting with Seaborn<a class="headerlink" href="#plotting-with-seaborn" title="Permalink to this heading">#</a></h1>
-<p>Seaborn is a powerful data visualization library built on top of Matplotlib. It provides a high-level interface for creating attractive and informative statistical graphics. In this notebook, we’ll explore some basic plotting techniques using Seaborn.</p>
+<h1>Plotting with Seaborn<a class="headerlink" href="#plotting-with-seaborn" title="Link to this heading">#</a></h1>
+<p>Seaborn is a powerful data visualization library built on top of Matplotlib. It provides a high-level interface for drawing attractive and informative statistical graphics. In this notebook, we’ll explore some basic plotting techniques using Seaborn.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary libraries</span>
@@ -403,15 +409,15 @@ document.write(`
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
-<span class="c1"># Set the style for better-looking plots</span>
+<span class="c1"># Set the style for our plots</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <section id="loading-a-dataset">
-<h2>Loading a Dataset<a class="headerlink" href="#loading-a-dataset" title="Permalink to this heading">#</a></h2>
-<p>Let’s start by loading a dataset. Seaborn comes with several built-in datasets. We’ll use the ‘tips’ dataset for our examples.</p>
+<h2>Loading a Dataset<a class="headerlink" href="#loading-a-dataset" title="Link to this heading">#</a></h2>
+<p>Seaborn comes with several built-in datasets. Let’s start by loading the ‘tips’ dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the tips dataset</span>
@@ -506,8 +512,8 @@ document.write(`
 </div></div></div>
 </div>
 </section>
-<section id="creating-a-scatter-plot">
-<h2>Creating a Scatter Plot<a class="headerlink" href="#creating-a-scatter-plot" title="Permalink to this heading">#</a></h2>
+<section id="scatter-plot">
+<h2>Scatter Plot<a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h2>
 <p>Let’s create a simple scatter plot to visualize the relationship between total bill and tip.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -519,81 +525,144 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f6be0a73186aac356a6ec2e0178dc956605160c70e483ef36cb882f39566012f.png" src="_images/f6be0a73186aac356a6ec2e0178dc956605160c70e483ef36cb882f39566012f.png" />
+<img alt="_images/3cbc8b8fc8a14b150c416453b4845a4aea71777ee606e2bd0b1fce9914329163.png" src="_images/3cbc8b8fc8a14b150c416453b4845a4aea71777ee606e2bd0b1fce9914329163.png" />
 </div>
 </div>
 </section>
-<section id="adding-a-third-variable-with-color">
-<h2>Adding a Third Variable with Color<a class="headerlink" href="#adding-a-third-variable-with-color" title="Permalink to this heading">#</a></h2>
-<p>We can add more information to our plot by using color to represent a third variable.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a scatter plot with color representing the day</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tip vs Total Bill by Day&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/a5103ed47d2579dc52ec840444ba91fce38981b19a724871a48dc0b7dc31d5ee.png" src="_images/a5103ed47d2579dc52ec840444ba91fce38981b19a724871a48dc0b7dc31d5ee.png" />
-</div>
-</div>
-</section>
-<section id="creating-a-box-plot">
-<h2>Creating a Box Plot<a class="headerlink" href="#creating-a-box-plot" title="Permalink to this heading">#</a></h2>
-<p>Box plots are great for comparing distributions across categories.</p>
+<section id="box-plot">
+<h2>Box Plot<a class="headerlink" href="#box-plot" title="Link to this heading">#</a></h2>
+<p>Now, let’s create a box plot to compare tips across different days of the week.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a box plot</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Total Bill Distribution by Day&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tip&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Tips by Day of the Week&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2effaea740bf4e6c3f290266e2333d558eafa34650436c8ac4a6c41edfc2f000.png" src="_images/2effaea740bf4e6c3f290266e2333d558eafa34650436c8ac4a6c41edfc2f000.png" />
+<img alt="_images/8c2d0b5f4cf2eb7127829cef95323750f7a51d8681b8b8ae4b0bcc73e6dd9004.png" src="_images/8c2d0b5f4cf2eb7127829cef95323750f7a51d8681b8b8ae4b0bcc73e6dd9004.png" />
 </div>
 </div>
 </section>
-<section id="creating-a-violin-plot">
-<h2>Creating a Violin Plot<a class="headerlink" href="#creating-a-violin-plot" title="Permalink to this heading">#</a></h2>
-<p>Violin plots are similar to box plots but show the full distribution of the data.</p>
+<section id="violin-plot">
+<h2>Violin Plot<a class="headerlink" href="#violin-plot" title="Link to this heading">#</a></h2>
+<p>A violin plot is similar to a box plot but shows the probability density of the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a violin plot</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;day&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Total Bill Distribution by Day (Violin Plot)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Distribution of Total Bill by Day&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/11a697b18ad4fd6e8025ae2e381bb3e86638fa2d32618a027c7660076644f82f.png" src="_images/11a697b18ad4fd6e8025ae2e381bb3e86638fa2d32618a027c7660076644f82f.png" />
+<img alt="_images/7365994cf6d06b86670cad03949d9f108d4bd0d0d9365d9b705995b5c4ab6f0b.png" src="_images/7365994cf6d06b86670cad03949d9f108d4bd0d0d9365d9b705995b5c4ab6f0b.png" />
 </div>
 </div>
 </section>
-<section id="creating-a-pair-plot">
-<h2>Creating a Pair Plot<a class="headerlink" href="#creating-a-pair-plot" title="Permalink to this heading">#</a></h2>
-<p>Pair plots are useful for exploring relationships between multiple variables at once.</p>
+<section id="heatmap">
+<h2>Heatmap<a class="headerlink" href="#heatmap" title="Link to this heading">#</a></h2>
+<p>Finally, let’s create a heatmap to visualize the correlation between numerical variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a pair plot</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;time&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Pair Plot of Tips Dataset&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.02</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the correlation matrix</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># Create a heatmap</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Correlation Heatmap&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/add4b39ee0c419b503a480d79f36a7c5dad8c58c62537092365e3024c1e30c04.png" src="_images/add4b39ee0c419b503a480d79f36a7c5dad8c58c62537092365e3024c1e30c04.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Compute the correlation matrix</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">corr</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Create a heatmap</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/core/frame.py:11049,</span> in <span class="ni">DataFrame.corr</span><span class="nt">(self, method, min_periods, numeric_only)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11047</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+<span class="g g-Whitespace">  </span><span class="mi">11048</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">cols</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="ne">&gt; </span><span class="mi">11049</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11051</span> <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;pearson&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">11052</span>     <span class="n">correl</span> <span class="o">=</span> <span class="n">libalgos</span><span class="o">.</span><span class="n">nancorr</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">minp</span><span class="o">=</span><span class="n">min_periods</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/core/frame.py:1993,</span> in <span class="ni">DataFrame.to_numpy</span><span class="nt">(self, dtype, copy, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1991</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1992</span>     <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1993</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">as_array</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1994</span> <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dtype</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1995</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/core/internals/managers.py:1694,</span> in <span class="ni">BlockManager.as_array</span><span class="nt">(self, dtype, copy, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1692</span>         <span class="n">arr</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1693</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1694</span>     <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interleave</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1695</span>     <span class="c1"># The underlying data was copied within _interleave, so no need</span>
+<span class="g g-Whitespace">   </span><span class="mi">1696</span>     <span class="c1"># to further copy if copy=True or setting na_value</span>
+<span class="g g-Whitespace">   </span><span class="mi">1698</span> <span class="k">if</span> <span class="n">na_value</span> <span class="ow">is</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/core/internals/managers.py:1747,</span> in <span class="ni">BlockManager._interleave</span><span class="nt">(self, dtype, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1741</span> <span class="n">rl</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">mgr_locs</span>
+<span class="g g-Whitespace">   </span><span class="mi">1742</span> <span class="k">if</span> <span class="n">blk</span><span class="o">.</span><span class="n">is_extension</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1743</span>     <span class="c1"># Avoid implicit conversion of extension blocks to object</span>
+<span class="g g-Whitespace">   </span><span class="mi">1744</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1745</span>     <span class="c1"># error: Item &quot;ndarray&quot; of &quot;Union[ndarray, ExtensionArray]&quot; has no</span>
+<span class="g g-Whitespace">   </span><span class="mi">1746</span>     <span class="c1"># attribute &quot;to_numpy&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1747</span>     <span class="n">arr</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span>  <span class="c1"># type: ignore[union-attr]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1748</span>         <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1749</span>         <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1750</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1751</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1752</span>     <span class="n">arr</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/core/arrays/base.py:568,</span> in <span class="ni">ExtensionArray.to_numpy</span><span class="nt">(self, dtype, copy, na_value)</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span> <span class="k">def</span> <span class="nf">to_numpy</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span>     <span class="n">dtype</span><span class="p">:</span> <span class="n">npt</span><span class="o">.</span><span class="n">DTypeLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">542</span>     <span class="n">copy</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span>     <span class="n">na_value</span><span class="p">:</span> <span class="nb">object</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">545</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">546</span><span class="sd">     Convert to a NumPy ndarray.</span>
+<span class="g g-Whitespace">    </span><span class="mi">547</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span><span class="sd">     numpy.ndarray</span>
+<span class="g g-Whitespace">    </span><span class="mi">567</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">568</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="k">if</span> <span class="n">copy</span> <span class="ow">or</span> <span class="n">na_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/core/arrays/_mixins.py:81,</span> in <span class="ni">ravel_compat.&lt;locals&gt;.method</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">meth</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span> <span class="k">def</span> <span class="nf">method</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">81</span>         <span class="k">return</span> <span class="n">meth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span>     <span class="n">flags</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ndarray</span><span class="o">.</span><span class="n">flags</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span>     <span class="n">flat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.9.19/x64/lib/python3.9/site-packages/pandas/core/arrays/categorical.py:1664,</span> in <span class="ni">Categorical.__array__</span><span class="nt">(self, dtype, copy)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1662</span> <span class="n">ret</span> <span class="o">=</span> <span class="n">take_nd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">categories</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_codes</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1663</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">categories</span><span class="o">.</span><span class="n">dtype</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1664</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ret</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1665</span> <span class="c1"># When we&#39;re a Categorical[ExtensionArray], like Interval,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1666</span> <span class="c1"># we need to ensure __array__ gets all the way to an</span>
+<span class="g g-Whitespace">   </span><span class="mi">1667</span> <span class="c1"># ndarray.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1668</span> <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ret</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;No&#39;
+</pre></div>
 </div>
 </div>
-</section>
-<section id="conclusion">
-<h2>Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
-<p>This notebook has introduced you to some basic plotting techniques using Seaborn. There are many more types of plots and customization options available in Seaborn. Experiment with different plot types and parameters to create visualizations that best represent your data!</p>
+</div>
+<p>This notebook has introduced you to some basic plotting techniques using Seaborn. There are many more plot types and customization options available in Seaborn, which you can explore in the official documentation.</p>
 </section>
 </section>
 
@@ -624,7 +693,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -654,6 +723,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -661,12 +731,10 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-a-dataset">Loading a Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-scatter-plot">Creating a Scatter Plot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-third-variable-with-color">Adding a Third Variable with Color</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-box-plot">Creating a Box Plot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-violin-plot">Creating a Violin Plot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-pair-plot">Creating a Pair Plot</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">Scatter Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">Violin Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">Heatmap</a></li>
 </ul>
   </nav></div>
 
@@ -681,7 +749,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By AI-generated
+By AI-Generated
 </p>
 
   </div>
@@ -699,10 +767,7 @@ By AI-generated
   </div>
   
   <div class="footer-item">
-    <p class="last-updated">
-  Last updated on June 23, 2024.
-  <br/>
-</p>
+    
   </div>
   
   <div class="footer-item">
@@ -718,8 +783,8 @@ By AI-generated
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
