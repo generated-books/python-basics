@@ -5,31 +5,29 @@ logo: ../icon.png
 copyright: "2024"
 only_build_toc_files: true
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+# Execution settings
 execute:
   execute_notebooks: force
 
-# Information about where the book exists on the web
-repository:
-  url: https://github.com/generated-books/python-basics
-  path_to_book: docs
-
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# HTML-specific settings
 html:
   use_issues_button: true
   use_repository_button: true
 
+# Launch button settings
+repository:
+  url: https://github.com/generated-books/python-basics
+  branch: main
+
+# Advanced and power-user settings
 sphinx:
   config:
-    html_show_copyright: false
+    html_last_updated_fmt: "%B %d, %Y"
 
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
-
-# Add last updated date
-html:
-  extra_footer: |
-    Last updated: June 23, 2024
+parse:
+  myst_enable_extensions:
+    - colon_fence
+    - dollarmath
+    - linkify
+    - substitution
+    - tasklist

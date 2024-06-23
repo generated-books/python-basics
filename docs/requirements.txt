@@ -2,7 +2,9 @@ jupyter-book
 numpy
 scikit-image
 pandas
-matplotlib
 seaborn
+matplotlib
 scikit-learn
 ipython
+jupyter
+notebook
