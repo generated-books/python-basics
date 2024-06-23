@@ -1,9 +1,8 @@
+jupyter-book
 numpy
-pandas
-matplotlib
-seaborn
 scikit-image
+pandas
+seaborn
+matplotlib
 scikit-learn
 ipython
-jupyter
-jupyter-book

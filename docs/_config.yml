@@ -1,8 +1,8 @@
 # Book settings
 title: Python Basics
-author: AI-Generated
-copyright: "2024"
+author: AI Generated
 logo: ../icon.png
+copyright: "2024"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -14,25 +14,17 @@ latex:
   latex_documents:
     targetname: book.tex
 
-# Add a bibtex file so that we can create citations
-bibtex_bibfiles:
-  - references.bib
-
 # Information about where the book exists on the web
 repository:
   url: https://github.com/generated-books/python-basics
   path_to_book: docs
+  branch: main
 
 # Add GitHub buttons to your book
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
 html:
   use_issues_button: true
   use_repository_button: true
-
-# Launch button settings
-launch_buttons:
-  notebook_interface: jupyterlab
-  binderhub_url: ""
 
 # Date of last update
 last_updated: "June 23, 2024"
